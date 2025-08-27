@@ -5,26 +5,53 @@ import offlinePrisma from "@/lib/oflinePrisma";
 export async function POST(req: NextRequest) {
     try {
         const body = await req.json();
-        const { customerId, saleId, amount, paymentMethod, notes, warehousesId } = body;
+        const { customerId, supplierId, saleId, purchaseId, amount, paymentMethod, notes, warehousesId } = body;
 
-        // Validate required fields
-        if (!customerId || !amount || !paymentMethod) {
+        // Validate required fields - either customerId or supplierId must be provided
+        if ((!customerId && !supplierId) || !amount || !paymentMethod) {
             return NextResponse.json(
-                { error: "Customer ID, amount, and payment method are required" },
+                { error: "Customer ID or Supplier ID, amount, and payment method are required" },
                 { status: 400 }
             );
         }
 
-        // Check if customer exists
-        const customer = await offlinePrisma.customer.findUnique({
-            where: { id: customerId, isDeleted: false }
-        });
-
-        if (!customer) {
+        // Both customerId and supplierId cannot be provided
+        if (customerId && supplierId) {
             return NextResponse.json(
-                { error: "Customer not found" },
-                { status: 404 }
+                { error: "Cannot provide both customer ID and supplier ID" },
+                { status: 400 }
             );
+        }
+
+        let customer = null;
+        let supplier = null;
+
+        // Check if customer exists (for customer payments)
+        if (customerId) {
+            customer = await offlinePrisma.customer.findUnique({
+                where: { id: customerId, isDeleted: false }
+            });
+
+            if (!customer) {
+                return NextResponse.json(
+                    { error: "Customer not found" },
+                    { status: 404 }
+                );
+            }
+        }
+
+        // Check if supplier exists (for supplier payments)
+        if (supplierId) {
+            supplier = await offlinePrisma.supplier.findUnique({
+                where: { id: supplierId, isDeleted: false }
+            });
+
+            if (!supplier) {
+                return NextResponse.json(
+                    { error: "Supplier not found" },
+                    { status: 404 }
+                );
+            }
         }
 
         // If saleId is provided, check if sale exists and has outstanding balance
@@ -56,6 +83,35 @@ export async function POST(req: NextRequest) {
             }
         }
 
+        // If purchaseId is provided, check if purchase exists and has outstanding balance
+        let purchase = null;
+        if (purchaseId) {
+            purchase = await offlinePrisma.purchase.findUnique({
+                where: { referenceNo: purchaseId, isDeleted: false }
+            });
+
+            if (!purchase) {
+                return NextResponse.json(
+                    { error: "Purchase not found" },
+                    { status: 404 }
+                );
+            }
+
+            if (purchase.balance <= 0) {
+                return NextResponse.json(
+                    { error: "Purchase has no outstanding balance" },
+                    { status: 400 }
+                );
+            }
+
+            if (amount > purchase.balance) {
+                return NextResponse.json(
+                    { error: "Payment amount cannot exceed outstanding balance" },
+                    { status: 400 }
+                );
+            }
+        }
+
         // Generate unique receipt number
         const timestamp = Date.now();
         const receiptNo = `BP-${timestamp}`;
@@ -63,8 +119,10 @@ export async function POST(req: NextRequest) {
         // Create balance payment record
         const balancePayment = await offlinePrisma.balancePayment.create({
             data: {
-                customerId,
+                customerId: customerId || null,
+                supplierId: supplierId || null,
                 saleId: saleId || null,
+                purchaseId: purchaseId || null,
                 amount: parseFloat(amount),
                 paymentMethod,
                 receiptNo,
@@ -73,7 +131,9 @@ export async function POST(req: NextRequest) {
             },
             include: {
                 customer: true,
-                sale: true
+                supplier: true,
+                sale: true,
+                purchase: true
             }
         });
 
@@ -84,6 +144,20 @@ export async function POST(req: NextRequest) {
 
             await offlinePrisma.sale.update({
                 where: { invoiceNo: saleId },
+                data: {
+                    balance: newBalance,
+                    paidAmount: newPaidAmount
+                }
+            });
+        }
+
+        // Update purchase balance if purchaseId is provided
+        if (purchaseId && purchase) {
+            const newBalance = purchase.balance - parseFloat(amount);
+            const newPaidAmount = purchase.paidAmount + parseFloat(amount);
+
+            await offlinePrisma.purchase.update({
+                where: { referenceNo: purchaseId },
                 data: {
                     balance: newBalance,
                     paidAmount: newPaidAmount
@@ -108,27 +182,38 @@ export async function POST(req: NextRequest) {
     }
 }
 
-// GET - Fetch balance payments for a customer
+// GET - Fetch balance payments for a customer or supplier
 export async function GET(req: NextRequest) {
     try {
         const { searchParams } = new URL(req.url);
         const customerId = searchParams.get('customerId');
+        const supplierId = searchParams.get('supplierId');
 
-        if (!customerId) {
+        if (!customerId && !supplierId) {
             return NextResponse.json(
-                { error: "Customer ID is required" },
+                { error: "Customer ID or Supplier ID is required" },
                 { status: 400 }
             );
         }
 
+        if (customerId && supplierId) {
+            return NextResponse.json(
+                { error: "Cannot provide both customer ID and supplier ID" },
+                { status: 400 }
+            );
+        }
+
+        const whereClause = customerId 
+            ? { customerId, isDeleted: false }
+            : { supplierId, isDeleted: false };
+
         const balancePayments = await offlinePrisma.balancePayment.findMany({
-            where: {
-                customerId,
-                isDeleted: false
-            },
+            where: whereClause,
             include: {
                 customer: true,
-                sale: true
+                supplier: true,
+                sale: true,
+                purchase: true
             },
             orderBy: {
                 createdAt: 'desc'
