@@ -1,7 +1,7 @@
 "use client"
 
 import type * as React from "react"
-import { useState } from "react"
+import { useState,useEffect } from "react"
 import {
   BarChart3,
   Bell,
@@ -21,6 +21,9 @@ import {
   Eye,
   Warehouse,
   type LucideIcon,
+  Receipt,
+  Calculator,
+  Quote,
 } from "lucide-react"
 
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible"
@@ -39,78 +42,13 @@ import {
   SidebarRail,
 } from "@/components/ui/sidebar"
 import fetchData from "@/hooks/fetch-data"
-import { signOut } from "next-auth/react"
+import { NavbarItem } from "@heroui/navbar"
 import { Button } from "@heroui/button"
+import { signOut, useSession } from "next-auth/react"
+import { getWareHouseId } from "@/hooks/get-werehouseId"
+import { SystemStatus } from "@/components/system-status"
 
 // Navigation data for inventory management system
-const navigationData = {
-  main: [
-    {
-      title: "Dashboard",
-      url: "/dashboard",
-      icon: Home,
-    },
-  ],
-  inventory: [
-
-    {
-      title: "Warehouses",
-      icon: Warehouse,
-      items: [
-        {
-          title: "Add Warehouse",
-          url: "/warehouses/add",
-          icon: Plus,
-        },
-        {
-          title: "View Warehouses",
-          url: "/warehouses/list",
-          icon: Eye,
-        },
-      ],
-    },
-  ],
-  people: [
-    {
-      title: "People",
-      icon: Users,
-      items: [
-        {
-          title: "Users",
-          url: "/people/users",
-          icon: User,
-        },
-        {
-          title: "Customers",
-          url: "/people/customers",
-          icon: UserCheck,
-        },
-        {
-          title: "Suppliers",
-          url: "/people/suppliers",
-          icon: Building2,
-        },
-      ],
-    },
-  ],
-  system: [
-    {
-      title: "Notifications",
-      url: "/notifications",
-      icon: Bell,
-    },
-    {
-      title: "Reports",
-      url: "/reports",
-      icon: BarChart3,
-    },
-    {
-      title: "Settings",
-      url: "/settings",
-      icon: Settings,
-    },
-  ],
-}
 
 function NavSection({
   title,
@@ -184,7 +122,18 @@ function NavSection({
 export function WarehouseAppSidebar({ ...props }: React.ComponentProps<typeof Sidebar>) {
   
   const {data,loading,error} = fetchData("/api/settings")
+  const warehouseId = getWareHouseId()
+  const {data:session} = useSession()
+  const [endpoint,setEndPoint] = useState("")
 
+
+  useEffect(()=>{
+    setEndPoint(`/warehouse/${warehouseId}/${session?.user?.role}`)
+  },[session,warehouseId])
+
+  
+
+  
   if(loading) return ""
 
   // const isOnline = useConnectionCheck()
@@ -201,20 +150,95 @@ export function WarehouseAppSidebar({ ...props }: React.ComponentProps<typeof Si
                 </div>
                 <div className="grid flex-1 text-left text-sm leading-tight">
                   <span className="truncate font-semibold">{data?.companyName}</span>
-                  <span className="truncate text-xs">Admin Management System</span>
+                  <span className="truncate text-xs">Purchase Management System</span>
                   {/* {isOnline ? "online" : "ofline"} */}
                 </div>
               </a>
             </SidebarMenuButton>
           </SidebarMenuItem>
+          <SystemStatus/>
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavSection title="Overview" items={navigationData.main} />
-        <NavSection title="Inventory" items={navigationData.inventory} />
-        <NavSection title="People" items={navigationData.people} />
-        <NavSection title="System" items={navigationData.system} />
-        <Button onClick={()=>signOut()} className="bg-red-500 m-2">Logout</Button>
+        <NavSection title="Overview" items={[
+                {
+                  title: "Dashboard",
+                  url: `${endpoint}/dashboard`,
+                  icon: Home,
+                },
+              ]} />
+        <NavSection title="Purchase Operations" items={[
+    {
+      title: "Purchases",
+      icon: Truck,
+      items: [
+        {
+          title: "Add Purchase",
+          url: `${endpoint}/purchases/add`,
+          icon: Plus,
+        },
+        {
+          title: "View Purchases",
+          url: `${endpoint}/purchases/list`,
+          icon: Eye,
+        },
+      ],
+    },
+  ]} />
+        <NavSection title="Inventory" items={[
+    {
+      title: "Products",
+      icon: Package,
+      items: [
+        {
+          title: "View Products",
+          url: `${endpoint}/products/list`,
+          icon: Eye,
+        },
+      ],
+    },
+  ]} />
+        <NavSection title="People" items={[
+              {
+                title: "Suppliers",
+                icon: Building2,
+                items: [
+                  {
+                    title: "View Suppliers",
+                    url: `${endpoint}/people/suppliers`,
+                    icon: Eye,
+                  },
+                ],
+              },
+            ]} />
+        <NavSection
+            title="Reports"
+            items={[
+              {
+                title: "Receipt",
+                url: `${endpoint}/receipt`,
+                icon: Receipt,
+              },
+            ]}
+          />
+
+        
+
+        <SidebarMenu>
+          <SidebarMenuItem>
+          <SidebarMenuButton
+              tooltip="Logout"
+              onClick={() => signOut()}
+              className="bg-red-500 text-white hover:bg-red-600 transition"
+            >
+              <ArrowLeftRight className="mr-2 h-4 w-4" />
+              <span>Logout</span>
+            </SidebarMenuButton>
+          </SidebarMenuItem>
+        </SidebarMenu>
+
+        <Button onClick={()=>signOut()} style={{display:"none"}} className="bg-red-500">Logout</Button>
+
       </SidebarContent>
       <SidebarRail />
     </Sidebar>
