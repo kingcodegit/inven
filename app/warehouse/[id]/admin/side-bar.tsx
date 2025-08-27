@@ -22,6 +22,8 @@ import {
   Warehouse,
   type LucideIcon,
   Receipt,
+  Calculator,
+  Quote,
 } from "lucide-react"
 
 
@@ -182,6 +184,22 @@ export function SupAdminAppSidebar({ ...props }: React.ComponentProps<typeof Sid
         {
           title: "View Sales",
           url: `${endpoint}/sales/list`,
+          icon: Eye,
+        },
+      ],
+    },
+    {
+      title: "Quotations",
+      icon: Quote,
+      items: [
+        {
+          title: "Add Quotation",
+          url: `${endpoint}/quotations/add`,
+          icon: Plus,
+        },
+        {
+          title: "View Quotations",
+          url: `${endpoint}/quotations/list`,
           icon: Eye,
         },
       ],

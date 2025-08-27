@@ -112,6 +112,8 @@ model Warehouses {
   supplier        Supplier[]
   receiptSettings ReceiptSettings[]
   balancePayment  BalancePayment[]
+  quotation       Quotation[]
+  quotationItem   QuotationItem[]
   sync            Boolean           @default(false) // Sync field
   syncedAt        DateTime? // When last synced
   isDeleted       Boolean           @default(false)
@@ -225,6 +227,7 @@ model Customer {
   Sale           Sale[]
   saleItem       SaleItem[]
   balancePayment BalancePayment[]
+  quotation      Quotation[]
   createdAt      DateTime         @default(now())
   updatedAt      DateTime         @updatedAt
   sync           Boolean          @default(false) // Sync field
@@ -251,7 +254,7 @@ model Supplier {
 }
 
 model Product {
-  id             String         @id @default(uuid())
+  id             String          @id @default(uuid())
   name           String
   barcode        String
   wholeSalePrice Float
@@ -261,15 +264,16 @@ model Product {
   taxRate        Int
   unit           unit
   description    String
-  warehouses     Warehouses?    @relation(fields: [warehousesId], references: [warehouseCode])
+  warehouses     Warehouses?     @relation(fields: [warehousesId], references: [warehouseCode])
   warehousesId   String?
   SaleItem       SaleItem[]
   purchaseItem   PurchaseItem[]
-  createdAt      DateTime       @default(now())
-  updatedAt      DateTime       @updatedAt
-  sync           Boolean        @default(false) // Sync field
+  quotationItem  QuotationItem[]
+  createdAt      DateTime        @default(now())
+  updatedAt      DateTime        @updatedAt
+  sync           Boolean         @default(false) // Sync field
   syncedAt       DateTime? // When last synced
-  isDeleted      Boolean        @default(false)
+  isDeleted      Boolean         @default(false)
 }
 
 model PaymentMethod {
@@ -365,6 +369,48 @@ model BalancePayment {
   warehouses    Warehouses? @relation(fields: [warehousesId], references: [warehouseCode])
   createdAt     DateTime    @default(now())
   updatedAt     DateTime    @updatedAt
+  sync          Boolean     @default(false) // Sync field
+  syncedAt      DateTime? // When last synced
+  isDeleted     Boolean     @default(false)
+}
+
+model Quotation {
+  id                 String          @id @default(cuid())
+  quotationItems     QuotationItem[]
+  selectedCustomerId String? // reference to Customer
+  selectedCustomer   Customer?       @relation(fields: [selectedCustomerId], references: [id])
+  taxRate            Float
+  subTotal           Float
+  notes              String?
+  grandTotal         Float
+  validUntil         DateTime? // Quotation expiry date
+  status             String          @default("pending") // pending, accepted, rejected, converted
+  convertedToSaleId  String? // If converted to sale, reference to Sale
+  createdAt          DateTime        @default(now())
+  updatedAt          DateTime        @updatedAt
+  warehousesId       String?
+  warehouses         Warehouses?     @relation(fields: [warehousesId], references: [warehouseCode])
+  quotationNo        String          @unique
+  sync               Boolean         @default(false) // Sync field
+  syncedAt           DateTime? // When last synced
+  isDeleted          Boolean         @default(false)
+}
+
+model QuotationItem {
+  id            String      @id @default(cuid())
+  quotationId   String?
+  quotation     Quotation?  @relation(fields: [quotationId], references: [quotationNo])
+  productId     String?
+  product       Product?    @relation(fields: [productId], references: [id])
+  productName   String
+  cost          Float
+  selectedPrice Float
+  priceType     String
+  quantity      Int
+  discount      Float
+  total         Float
+  Warehouses    Warehouses? @relation(fields: [warehousesId], references: [warehouseCode])
+  warehousesId  String?
   sync          Boolean     @default(false) // Sync field
   syncedAt      DateTime? // When last synced
   isDeleted     Boolean     @default(false)

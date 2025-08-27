@@ -631,7 +631,7 @@ export default function AddSalePage() {
                           id="quantity"
                           type="number"
                           
-                          // max={selectedProduct.quantity}
+                          max={selectedProduct.quantity}
                           value={quantity}
                           onChange={(e) => setQuantity(Number.parseInt(e.target.value) || 1)}
                         />
@@ -650,7 +650,7 @@ export default function AddSalePage() {
                         <Button
                           onClick={addProductToSale}
                           className="w-full"
-                          // disabled={selectedProduct.quantity === 0 || quantity > selectedProduct.quantity}
+                          disabled={selectedProduct.quantity === 0 || quantity > selectedProduct.quantity}
                         >
                           <Plus className="mr-2 h-4 w-4" />
                           Add
@@ -727,7 +727,7 @@ export default function AddSalePage() {
                                   type="number"
                                   min="1"
                                   value={item.quantity}
-                                  // max={item.limit}
+                                  max={item.limit}
                                  
                                   onChange={(e) => updateItemQuantity(item.id, Number.parseInt(e.target.value) || 1)}
                                   className="w-16"
@@ -966,15 +966,15 @@ export default function AddSalePage() {
               <DialogDescription>
                 {completedSale && (
                   <>
-                    Invoice #{completedSale.invoiceNo} has been created for {completedSale.customer.name}.
+                    Invoice {completedSale.invoiceNo} has been created for {completedSale.customer.name}.
                     <br />
-                    Total: ${completedSale.grandTotal.toFixed(2)}
+                    Total: {formatCurrency(completedSale.grandTotal)}
                     <br />
-                    Paid: ${completedSale.totalPaid.toFixed(2)} via {completedSale.paymentMethods.length} method(s)
+                    Paid: {formatCurrency(completedSale.totalPaid)} via {completedSale.paymentMethods.length} method(s)
                     {completedSale.balance > 0 && (
                       <>
                         <br />
-                        Balance: ${completedSale.balance.toFixed(2)}
+                        Balance: ${completedSale.balance}
                       </>
                     )}
                   </>

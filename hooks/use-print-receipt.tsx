@@ -77,39 +77,52 @@ interface ReceiptSettings {
 
 // --- Default Settings ---
 const DEFAULT_SETTINGS: ReceiptSettings = {
-  companyName: "ABK NASARA PHARMACEUTICAL LTD",
-  businessName: "Dealer on all pharmaceutical & Hospital Equipments",
-  address: "Shop no 28/29 abubakar waziri way, pot",
-  city: "Potiskum",
-  state: "Yobe State",
-  country: "Nigeria",
-  phone: "",
+  // --- Business Information (Replace with your own) ---
+  companyName: "Your Company Name",
+  businessName: "Your Business Slogan or Tagline",
+  address: "123 Main Street",
+  city: "Anytown",
+  state: "Anystate",
+  country: "Your Country",
+  phone: "+123-456-7890",
   email: "contact@yourcompany.com",
   website: "www.yourcompany.com",
+
+  // --- Receipt Content ---
   receiptTitle: "INVOICE",
-  headerMessage: "",
-  footerMessage: "Thank you for Visiting",
-  bankName: "U.B.A BANK",
-  accountName: "ABUBAKAR TELA NUHU",
-  accountNumber: "2093448820204",
+  headerMessage: "Optional message at the top of the receipt.",
+  footerMessage: "Thank you for your business!",
+
+  // --- Bank Details (Optional) ---
+  bankName: "Your Bank Name",
+  accountName: "Your Account Name",
+  accountNumber: "1234567890",
+
+  // --- Display & Feature Toggles ---
   showLogo: true,
-  logoUrl: "https://i.imgur.com/Sg2ot28.png", // Placeholder for the logo
+  logoUrl: "", // Example: "https://example.com/logo.png"
   showQrCode: false,
-  qrCodeContent: "website",
-  customQrContent: "",
+  qrCodeContent: "website", // Can be 'website', 'invoiceNo', or 'custom'
+  customQrContent: "",    // Used if qrCodeContent is 'custom'
   showCustomerInfo: true,
   showCashierInfo: true,
   showBalance: true,
   showTimestamp: true,
   showItemNumbers: true,
-  paperSize: "A4",
-  fontSize: "normal",
-  lineSpacing: "normal",
-  fontFamily: "sans-serif",
+
+  // --- Printing & Style Settings ---
+  paperSize: "A4",          // "57mm", "80mm", or "A4"
+  fontSize: "normal",       // "small", "normal", or "large"
+  lineSpacing: "normal",    // "compact", "normal", or "wide"
+  fontFamily: "sans-serif", // "monospace", "sans-serif", or "serif"
   autoPrint: false,
+
+  // --- Localization ---
   language: "en",
+  // Dynamically sets the currency symbol based on the system's locale.
+  // Replace with a static string like "₦" or "$" if needed.
   currencySymbol: `${formatCurrency(0)[0]}`,
-}
+};
 
 // --- Style Maps for Readability ---
 const FONT_SIZES = {

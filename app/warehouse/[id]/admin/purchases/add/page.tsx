@@ -147,7 +147,8 @@ export default function AddPurchasePage() {
       const existingItem = updatedItems[existingItemIndex]
       existingItem.quantity += quantity
       existingItem.discount += discount
-      existingItem.total = existingItem.selectedPrice * existingItem.quantity - existingItem.discount
+      const unitCost = existingItem.customCost !== undefined ? existingItem.customCost : existingItem.cost
+      existingItem.total = unitCost * existingItem.quantity - existingItem.discount
       setPurchaseItems(updatedItems)
     }else{
       const effectiveRetailPrice = enableCustomPrices && customRetailPrice !== undefined ? customRetailPrice : selectedProduct.retailPrice
@@ -155,7 +156,8 @@ export default function AddPurchasePage() {
       
       const selectedPrice = priceType === "wholesale" ? effectiveWholesalePrice : effectiveRetailPrice
   
-      const itemTotal = customCost ? customCost : selectedProduct.cost * quantity - discount
+      const unitCost = enableCustomPrices && customCost !== undefined ? customCost : selectedProduct.cost
+      const itemTotal = unitCost * quantity - discount
       const newItem: PurchaseItem = {
         id: `ITEM-${Date.now()}`,
           productId: selectedProduct.id,
@@ -767,7 +769,7 @@ export default function AddPurchasePage() {
                           id="quantity"
                           type="number"
                           min="1"
-                          max={selectedProduct.quantity}
+                          
                           value={quantity}
                           onChange={(e) => setQuantity(Number.parseInt(e.target.value) || 1)}
                         />
@@ -786,7 +788,7 @@ export default function AddPurchasePage() {
                         <Button
                           onClick={addProductToPurchase}
                           className="w-full"
-                          disabled={selectedProduct.quantity === 0 || quantity > selectedProduct.quantity}
+                          
                         >
                           <Plus className="mr-2 h-4 w-4" />
                           Add
@@ -890,7 +892,7 @@ export default function AddPurchasePage() {
                                 <span className="text-xs text-muted-foreground">{item.unit}</span>
                               </div>
                             </TableCell>
-                            <TableCell className="font-medium">${item.total.toFixed(2)}</TableCell>
+                            <TableCell className="font-medium">{formatCurrency(item.total)}</TableCell>
                             <TableCell>
                               <Button
                                 variant="ghost"
@@ -976,7 +978,7 @@ export default function AddPurchasePage() {
                       <Input
                         id="paid-amount"
                         type="number"
-                        min="0"
+                       
                         max={grandTotal}
                         value={paidAmount}
                         onChange={(e) => setPaidAmount(Number.parseFloat(e.target.value) || 0)}

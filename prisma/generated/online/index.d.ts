@@ -83,6 +83,16 @@ export type ReceiptSettings_online = $Result.DefaultSelection<Prisma.$ReceiptSet
  * 
  */
 export type BalancePayment_online = $Result.DefaultSelection<Prisma.$BalancePayment_onlinePayload>
+/**
+ * Model Quotation_online
+ * 
+ */
+export type Quotation_online = $Result.DefaultSelection<Prisma.$Quotation_onlinePayload>
+/**
+ * Model QuotationItem_online
+ * 
+ */
+export type QuotationItem_online = $Result.DefaultSelection<Prisma.$QuotationItem_onlinePayload>
 
 /**
  * Enums
@@ -408,6 +418,26 @@ export class PrismaClient<
     * ```
     */
   get balancePayment_online(): Prisma.BalancePayment_onlineDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.quotation_online`: Exposes CRUD operations for the **Quotation_online** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Quotation_onlines
+    * const quotation_onlines = await prisma.quotation_online.findMany()
+    * ```
+    */
+  get quotation_online(): Prisma.Quotation_onlineDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.quotationItem_online`: Exposes CRUD operations for the **QuotationItem_online** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more QuotationItem_onlines
+    * const quotationItem_onlines = await prisma.quotationItem_online.findMany()
+    * ```
+    */
+  get quotationItem_online(): Prisma.QuotationItem_onlineDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -861,7 +891,9 @@ export namespace Prisma {
     Product_online: 'Product_online',
     PaymentMethod_online: 'PaymentMethod_online',
     ReceiptSettings_online: 'ReceiptSettings_online',
-    BalancePayment_online: 'BalancePayment_online'
+    BalancePayment_online: 'BalancePayment_online',
+    Quotation_online: 'Quotation_online',
+    QuotationItem_online: 'QuotationItem_online'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -880,7 +912,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "superAdmin_online" | "users_online" | "settings_online" | "warehouses_online" | "sale_online" | "saleItem_online" | "purchase_online" | "purchaseItem_online" | "customer_online" | "supplier_online" | "product_online" | "paymentMethod_online" | "receiptSettings_online" | "balancePayment_online"
+      modelProps: "superAdmin_online" | "users_online" | "settings_online" | "warehouses_online" | "sale_online" | "saleItem_online" | "purchase_online" | "purchaseItem_online" | "customer_online" | "supplier_online" | "product_online" | "paymentMethod_online" | "receiptSettings_online" | "balancePayment_online" | "quotation_online" | "quotationItem_online"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1920,6 +1952,154 @@ export namespace Prisma {
           }
         }
       }
+      Quotation_online: {
+        payload: Prisma.$Quotation_onlinePayload<ExtArgs>
+        fields: Prisma.Quotation_onlineFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.Quotation_onlineFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.Quotation_onlineFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          findFirst: {
+            args: Prisma.Quotation_onlineFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.Quotation_onlineFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          findMany: {
+            args: Prisma.Quotation_onlineFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>[]
+          }
+          create: {
+            args: Prisma.Quotation_onlineCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          createMany: {
+            args: Prisma.Quotation_onlineCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.Quotation_onlineCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>[]
+          }
+          delete: {
+            args: Prisma.Quotation_onlineDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          update: {
+            args: Prisma.Quotation_onlineUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          deleteMany: {
+            args: Prisma.Quotation_onlineDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.Quotation_onlineUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.Quotation_onlineUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>[]
+          }
+          upsert: {
+            args: Prisma.Quotation_onlineUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$Quotation_onlinePayload>
+          }
+          aggregate: {
+            args: Prisma.Quotation_onlineAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateQuotation_online>
+          }
+          groupBy: {
+            args: Prisma.Quotation_onlineGroupByArgs<ExtArgs>
+            result: $Utils.Optional<Quotation_onlineGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.Quotation_onlineCountArgs<ExtArgs>
+            result: $Utils.Optional<Quotation_onlineCountAggregateOutputType> | number
+          }
+        }
+      }
+      QuotationItem_online: {
+        payload: Prisma.$QuotationItem_onlinePayload<ExtArgs>
+        fields: Prisma.QuotationItem_onlineFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.QuotationItem_onlineFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.QuotationItem_onlineFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          findFirst: {
+            args: Prisma.QuotationItem_onlineFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.QuotationItem_onlineFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          findMany: {
+            args: Prisma.QuotationItem_onlineFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>[]
+          }
+          create: {
+            args: Prisma.QuotationItem_onlineCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          createMany: {
+            args: Prisma.QuotationItem_onlineCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.QuotationItem_onlineCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>[]
+          }
+          delete: {
+            args: Prisma.QuotationItem_onlineDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          update: {
+            args: Prisma.QuotationItem_onlineUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          deleteMany: {
+            args: Prisma.QuotationItem_onlineDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.QuotationItem_onlineUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.QuotationItem_onlineUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>[]
+          }
+          upsert: {
+            args: Prisma.QuotationItem_onlineUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$QuotationItem_onlinePayload>
+          }
+          aggregate: {
+            args: Prisma.QuotationItem_onlineAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateQuotationItem_online>
+          }
+          groupBy: {
+            args: Prisma.QuotationItem_onlineGroupByArgs<ExtArgs>
+            result: $Utils.Optional<QuotationItem_onlineGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.QuotationItem_onlineCountArgs<ExtArgs>
+            result: $Utils.Optional<QuotationItem_onlineCountAggregateOutputType> | number
+          }
+        }
+      }
     }
   } & {
     other: {
@@ -2018,6 +2198,8 @@ export namespace Prisma {
     paymentMethod_online?: PaymentMethod_onlineOmit
     receiptSettings_online?: ReceiptSettings_onlineOmit
     balancePayment_online?: BalancePayment_onlineOmit
+    quotation_online?: Quotation_onlineOmit
+    quotationItem_online?: QuotationItem_onlineOmit
   }
 
   /* Types for Logging */
@@ -2123,6 +2305,8 @@ export namespace Prisma {
     supplier: number
     receiptSettings: number
     balancePayment: number
+    quotation: number
+    quotationItem: number
   }
 
   export type Warehouses_onlineCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -2137,6 +2321,8 @@ export namespace Prisma {
     supplier?: boolean | Warehouses_onlineCountOutputTypeCountSupplierArgs
     receiptSettings?: boolean | Warehouses_onlineCountOutputTypeCountReceiptSettingsArgs
     balancePayment?: boolean | Warehouses_onlineCountOutputTypeCountBalancePaymentArgs
+    quotation?: boolean | Warehouses_onlineCountOutputTypeCountQuotationArgs
+    quotationItem?: boolean | Warehouses_onlineCountOutputTypeCountQuotationItemArgs
   }
 
   // Custom InputTypes
@@ -2225,6 +2411,20 @@ export namespace Prisma {
    */
   export type Warehouses_onlineCountOutputTypeCountBalancePaymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BalancePayment_onlineWhereInput
+  }
+
+  /**
+   * Warehouses_onlineCountOutputType without action
+   */
+  export type Warehouses_onlineCountOutputTypeCountQuotationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Quotation_onlineWhereInput
+  }
+
+  /**
+   * Warehouses_onlineCountOutputType without action
+   */
+  export type Warehouses_onlineCountOutputTypeCountQuotationItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuotationItem_onlineWhereInput
   }
 
 
@@ -2316,12 +2516,14 @@ export namespace Prisma {
     Sale: number
     saleItem: number
     balancePayment: number
+    quotation: number
   }
 
   export type Customer_onlineCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     Sale?: boolean | Customer_onlineCountOutputTypeCountSaleArgs
     saleItem?: boolean | Customer_onlineCountOutputTypeCountSaleItemArgs
     balancePayment?: boolean | Customer_onlineCountOutputTypeCountBalancePaymentArgs
+    quotation?: boolean | Customer_onlineCountOutputTypeCountQuotationArgs
   }
 
   // Custom InputTypes
@@ -2354,6 +2556,13 @@ export namespace Prisma {
    */
   export type Customer_onlineCountOutputTypeCountBalancePaymentArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: BalancePayment_onlineWhereInput
+  }
+
+  /**
+   * Customer_onlineCountOutputType without action
+   */
+  export type Customer_onlineCountOutputTypeCountQuotationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Quotation_onlineWhereInput
   }
 
 
@@ -2395,11 +2604,13 @@ export namespace Prisma {
   export type Product_onlineCountOutputType = {
     SaleItem: number
     purchaseItem: number
+    quotationItem: number
   }
 
   export type Product_onlineCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     SaleItem?: boolean | Product_onlineCountOutputTypeCountSaleItemArgs
     purchaseItem?: boolean | Product_onlineCountOutputTypeCountPurchaseItemArgs
+    quotationItem?: boolean | Product_onlineCountOutputTypeCountQuotationItemArgs
   }
 
   // Custom InputTypes
@@ -2425,6 +2636,44 @@ export namespace Prisma {
    */
   export type Product_onlineCountOutputTypeCountPurchaseItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: PurchaseItem_onlineWhereInput
+  }
+
+  /**
+   * Product_onlineCountOutputType without action
+   */
+  export type Product_onlineCountOutputTypeCountQuotationItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuotationItem_onlineWhereInput
+  }
+
+
+  /**
+   * Count Type Quotation_onlineCountOutputType
+   */
+
+  export type Quotation_onlineCountOutputType = {
+    quotationItems: number
+  }
+
+  export type Quotation_onlineCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    quotationItems?: boolean | Quotation_onlineCountOutputTypeCountQuotationItemsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * Quotation_onlineCountOutputType without action
+   */
+  export type Quotation_onlineCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_onlineCountOutputType
+     */
+    select?: Quotation_onlineCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * Quotation_onlineCountOutputType without action
+   */
+  export type Quotation_onlineCountOutputTypeCountQuotationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuotationItem_onlineWhereInput
   }
 
 
@@ -6094,6 +6343,8 @@ export namespace Prisma {
     supplier?: boolean | Warehouses_online$supplierArgs<ExtArgs>
     receiptSettings?: boolean | Warehouses_online$receiptSettingsArgs<ExtArgs>
     balancePayment?: boolean | Warehouses_online$balancePaymentArgs<ExtArgs>
+    quotation?: boolean | Warehouses_online$quotationArgs<ExtArgs>
+    quotationItem?: boolean | Warehouses_online$quotationItemArgs<ExtArgs>
     _count?: boolean | Warehouses_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["warehouses_online"]>
 
@@ -6149,6 +6400,8 @@ export namespace Prisma {
     supplier?: boolean | Warehouses_online$supplierArgs<ExtArgs>
     receiptSettings?: boolean | Warehouses_online$receiptSettingsArgs<ExtArgs>
     balancePayment?: boolean | Warehouses_online$balancePaymentArgs<ExtArgs>
+    quotation?: boolean | Warehouses_online$quotationArgs<ExtArgs>
+    quotationItem?: boolean | Warehouses_online$quotationItemArgs<ExtArgs>
     _count?: boolean | Warehouses_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type Warehouses_onlineIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -6168,6 +6421,8 @@ export namespace Prisma {
       supplier: Prisma.$Supplier_onlinePayload<ExtArgs>[]
       receiptSettings: Prisma.$ReceiptSettings_onlinePayload<ExtArgs>[]
       balancePayment: Prisma.$BalancePayment_onlinePayload<ExtArgs>[]
+      quotation: Prisma.$Quotation_onlinePayload<ExtArgs>[]
+      quotationItem: Prisma.$QuotationItem_onlinePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6585,6 +6840,8 @@ export namespace Prisma {
     supplier<T extends Warehouses_online$supplierArgs<ExtArgs> = {}>(args?: Subset<T, Warehouses_online$supplierArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Supplier_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     receiptSettings<T extends Warehouses_online$receiptSettingsArgs<ExtArgs> = {}>(args?: Subset<T, Warehouses_online$receiptSettingsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReceiptSettings_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     balancePayment<T extends Warehouses_online$balancePaymentArgs<ExtArgs> = {}>(args?: Subset<T, Warehouses_online$balancePaymentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BalancePayment_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    quotation<T extends Warehouses_online$quotationArgs<ExtArgs> = {}>(args?: Subset<T, Warehouses_online$quotationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    quotationItem<T extends Warehouses_online$quotationItemArgs<ExtArgs> = {}>(args?: Subset<T, Warehouses_online$quotationItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7273,6 +7530,54 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: BalancePayment_onlineScalarFieldEnum | BalancePayment_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Warehouses_online.quotation
+   */
+  export type Warehouses_online$quotationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    where?: Quotation_onlineWhereInput
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    cursor?: Quotation_onlineWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Quotation_onlineScalarFieldEnum | Quotation_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Warehouses_online.quotationItem
+   */
+  export type Warehouses_online$quotationItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    where?: QuotationItem_onlineWhereInput
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
   }
 
   /**
@@ -12986,6 +13291,7 @@ export namespace Prisma {
     Sale?: boolean | Customer_online$SaleArgs<ExtArgs>
     saleItem?: boolean | Customer_online$saleItemArgs<ExtArgs>
     balancePayment?: boolean | Customer_online$balancePaymentArgs<ExtArgs>
+    quotation?: boolean | Customer_online$quotationArgs<ExtArgs>
     Warehouses_online?: boolean | Customer_online$Warehouses_onlineArgs<ExtArgs>
     _count?: boolean | Customer_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["customer_online"]>
@@ -13045,6 +13351,7 @@ export namespace Prisma {
     Sale?: boolean | Customer_online$SaleArgs<ExtArgs>
     saleItem?: boolean | Customer_online$saleItemArgs<ExtArgs>
     balancePayment?: boolean | Customer_online$balancePaymentArgs<ExtArgs>
+    quotation?: boolean | Customer_online$quotationArgs<ExtArgs>
     Warehouses_online?: boolean | Customer_online$Warehouses_onlineArgs<ExtArgs>
     _count?: boolean | Customer_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -13061,6 +13368,7 @@ export namespace Prisma {
       Sale: Prisma.$Sale_onlinePayload<ExtArgs>[]
       saleItem: Prisma.$SaleItem_onlinePayload<ExtArgs>[]
       balancePayment: Prisma.$BalancePayment_onlinePayload<ExtArgs>[]
+      quotation: Prisma.$Quotation_onlinePayload<ExtArgs>[]
       Warehouses_online: Prisma.$Warehouses_onlinePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -13474,6 +13782,7 @@ export namespace Prisma {
     Sale<T extends Customer_online$SaleArgs<ExtArgs> = {}>(args?: Subset<T, Customer_online$SaleArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Sale_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     saleItem<T extends Customer_online$saleItemArgs<ExtArgs> = {}>(args?: Subset<T, Customer_online$saleItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     balancePayment<T extends Customer_online$balancePaymentArgs<ExtArgs> = {}>(args?: Subset<T, Customer_online$balancePaymentArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$BalancePayment_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    quotation<T extends Customer_online$quotationArgs<ExtArgs> = {}>(args?: Subset<T, Customer_online$quotationArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Warehouses_online<T extends Customer_online$Warehouses_onlineArgs<ExtArgs> = {}>(args?: Subset<T, Customer_online$Warehouses_onlineArgs<ExtArgs>>): Prisma__Warehouses_onlineClient<$Result.GetResult<Prisma.$Warehouses_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -13982,6 +14291,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: BalancePayment_onlineScalarFieldEnum | BalancePayment_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Customer_online.quotation
+   */
+  export type Customer_online$quotationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    where?: Quotation_onlineWhereInput
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    cursor?: Quotation_onlineWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: Quotation_onlineScalarFieldEnum | Quotation_onlineScalarFieldEnum[]
   }
 
   /**
@@ -15537,6 +15870,7 @@ export namespace Prisma {
     isDeleted?: boolean
     SaleItem?: boolean | Product_online$SaleItemArgs<ExtArgs>
     purchaseItem?: boolean | Product_online$purchaseItemArgs<ExtArgs>
+    quotationItem?: boolean | Product_online$quotationItemArgs<ExtArgs>
     Warehouses_online?: boolean | Product_online$Warehouses_onlineArgs<ExtArgs>
     _count?: boolean | Product_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["product_online"]>
@@ -15604,6 +15938,7 @@ export namespace Prisma {
   export type Product_onlineInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     SaleItem?: boolean | Product_online$SaleItemArgs<ExtArgs>
     purchaseItem?: boolean | Product_online$purchaseItemArgs<ExtArgs>
+    quotationItem?: boolean | Product_online$quotationItemArgs<ExtArgs>
     Warehouses_online?: boolean | Product_online$Warehouses_onlineArgs<ExtArgs>
     _count?: boolean | Product_onlineCountOutputTypeDefaultArgs<ExtArgs>
   }
@@ -15619,6 +15954,7 @@ export namespace Prisma {
     objects: {
       SaleItem: Prisma.$SaleItem_onlinePayload<ExtArgs>[]
       purchaseItem: Prisma.$PurchaseItem_onlinePayload<ExtArgs>[]
+      quotationItem: Prisma.$QuotationItem_onlinePayload<ExtArgs>[]
       Warehouses_online: Prisma.$Warehouses_onlinePayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -16034,6 +16370,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     SaleItem<T extends Product_online$SaleItemArgs<ExtArgs> = {}>(args?: Subset<T, Product_online$SaleItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SaleItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     purchaseItem<T extends Product_online$purchaseItemArgs<ExtArgs> = {}>(args?: Subset<T, Product_online$purchaseItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PurchaseItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    quotationItem<T extends Product_online$quotationItemArgs<ExtArgs> = {}>(args?: Subset<T, Product_online$quotationItemArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     Warehouses_online<T extends Product_online$Warehouses_onlineArgs<ExtArgs> = {}>(args?: Subset<T, Product_online$Warehouses_onlineArgs<ExtArgs>>): Prisma__Warehouses_onlineClient<$Result.GetResult<Prisma.$Warehouses_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -16521,6 +16858,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: PurchaseItem_onlineScalarFieldEnum | PurchaseItem_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Product_online.quotationItem
+   */
+  export type Product_online$quotationItemArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    where?: QuotationItem_onlineWhereInput
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
   }
 
   /**
@@ -20685,6 +21046,2623 @@ export namespace Prisma {
 
 
   /**
+   * Model Quotation_online
+   */
+
+  export type AggregateQuotation_online = {
+    _count: Quotation_onlineCountAggregateOutputType | null
+    _avg: Quotation_onlineAvgAggregateOutputType | null
+    _sum: Quotation_onlineSumAggregateOutputType | null
+    _min: Quotation_onlineMinAggregateOutputType | null
+    _max: Quotation_onlineMaxAggregateOutputType | null
+  }
+
+  export type Quotation_onlineAvgAggregateOutputType = {
+    taxRate: number | null
+    subTotal: number | null
+    grandTotal: number | null
+  }
+
+  export type Quotation_onlineSumAggregateOutputType = {
+    taxRate: number | null
+    subTotal: number | null
+    grandTotal: number | null
+  }
+
+  export type Quotation_onlineMinAggregateOutputType = {
+    id: string | null
+    selectedCustomerId: string | null
+    taxRate: number | null
+    subTotal: number | null
+    notes: string | null
+    grandTotal: number | null
+    validUntil: Date | null
+    status: string | null
+    convertedToSaleId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    warehousesId: string | null
+    quotationNo: string | null
+    sync: boolean | null
+    syncedAt: Date | null
+    isDeleted: boolean | null
+  }
+
+  export type Quotation_onlineMaxAggregateOutputType = {
+    id: string | null
+    selectedCustomerId: string | null
+    taxRate: number | null
+    subTotal: number | null
+    notes: string | null
+    grandTotal: number | null
+    validUntil: Date | null
+    status: string | null
+    convertedToSaleId: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+    warehousesId: string | null
+    quotationNo: string | null
+    sync: boolean | null
+    syncedAt: Date | null
+    isDeleted: boolean | null
+  }
+
+  export type Quotation_onlineCountAggregateOutputType = {
+    id: number
+    selectedCustomerId: number
+    taxRate: number
+    subTotal: number
+    notes: number
+    grandTotal: number
+    validUntil: number
+    status: number
+    convertedToSaleId: number
+    createdAt: number
+    updatedAt: number
+    warehousesId: number
+    quotationNo: number
+    sync: number
+    syncedAt: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type Quotation_onlineAvgAggregateInputType = {
+    taxRate?: true
+    subTotal?: true
+    grandTotal?: true
+  }
+
+  export type Quotation_onlineSumAggregateInputType = {
+    taxRate?: true
+    subTotal?: true
+    grandTotal?: true
+  }
+
+  export type Quotation_onlineMinAggregateInputType = {
+    id?: true
+    selectedCustomerId?: true
+    taxRate?: true
+    subTotal?: true
+    notes?: true
+    grandTotal?: true
+    validUntil?: true
+    status?: true
+    convertedToSaleId?: true
+    createdAt?: true
+    updatedAt?: true
+    warehousesId?: true
+    quotationNo?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+  }
+
+  export type Quotation_onlineMaxAggregateInputType = {
+    id?: true
+    selectedCustomerId?: true
+    taxRate?: true
+    subTotal?: true
+    notes?: true
+    grandTotal?: true
+    validUntil?: true
+    status?: true
+    convertedToSaleId?: true
+    createdAt?: true
+    updatedAt?: true
+    warehousesId?: true
+    quotationNo?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+  }
+
+  export type Quotation_onlineCountAggregateInputType = {
+    id?: true
+    selectedCustomerId?: true
+    taxRate?: true
+    subTotal?: true
+    notes?: true
+    grandTotal?: true
+    validUntil?: true
+    status?: true
+    convertedToSaleId?: true
+    createdAt?: true
+    updatedAt?: true
+    warehousesId?: true
+    quotationNo?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type Quotation_onlineAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Quotation_online to aggregate.
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Quotation_onlines to fetch.
+     */
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: Quotation_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Quotation_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Quotation_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Quotation_onlines
+    **/
+    _count?: true | Quotation_onlineCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: Quotation_onlineAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: Quotation_onlineSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: Quotation_onlineMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: Quotation_onlineMaxAggregateInputType
+  }
+
+  export type GetQuotation_onlineAggregateType<T extends Quotation_onlineAggregateArgs> = {
+        [P in keyof T & keyof AggregateQuotation_online]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateQuotation_online[P]>
+      : GetScalarType<T[P], AggregateQuotation_online[P]>
+  }
+
+
+
+
+  export type Quotation_onlineGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: Quotation_onlineWhereInput
+    orderBy?: Quotation_onlineOrderByWithAggregationInput | Quotation_onlineOrderByWithAggregationInput[]
+    by: Quotation_onlineScalarFieldEnum[] | Quotation_onlineScalarFieldEnum
+    having?: Quotation_onlineScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: Quotation_onlineCountAggregateInputType | true
+    _avg?: Quotation_onlineAvgAggregateInputType
+    _sum?: Quotation_onlineSumAggregateInputType
+    _min?: Quotation_onlineMinAggregateInputType
+    _max?: Quotation_onlineMaxAggregateInputType
+  }
+
+  export type Quotation_onlineGroupByOutputType = {
+    id: string
+    selectedCustomerId: string | null
+    taxRate: number
+    subTotal: number
+    notes: string | null
+    grandTotal: number
+    validUntil: Date | null
+    status: string
+    convertedToSaleId: string | null
+    createdAt: Date
+    updatedAt: Date
+    warehousesId: string | null
+    quotationNo: string
+    sync: boolean
+    syncedAt: Date | null
+    isDeleted: boolean
+    _count: Quotation_onlineCountAggregateOutputType | null
+    _avg: Quotation_onlineAvgAggregateOutputType | null
+    _sum: Quotation_onlineSumAggregateOutputType | null
+    _min: Quotation_onlineMinAggregateOutputType | null
+    _max: Quotation_onlineMaxAggregateOutputType | null
+  }
+
+  type GetQuotation_onlineGroupByPayload<T extends Quotation_onlineGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<Quotation_onlineGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof Quotation_onlineGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], Quotation_onlineGroupByOutputType[P]>
+            : GetScalarType<T[P], Quotation_onlineGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type Quotation_onlineSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    selectedCustomerId?: boolean
+    taxRate?: boolean
+    subTotal?: boolean
+    notes?: boolean
+    grandTotal?: boolean
+    validUntil?: boolean
+    status?: boolean
+    convertedToSaleId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    warehousesId?: boolean
+    quotationNo?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    quotationItems?: boolean | Quotation_online$quotationItemsArgs<ExtArgs>
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+    _count?: boolean | Quotation_onlineCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["quotation_online"]>
+
+  export type Quotation_onlineSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    selectedCustomerId?: boolean
+    taxRate?: boolean
+    subTotal?: boolean
+    notes?: boolean
+    grandTotal?: boolean
+    validUntil?: boolean
+    status?: boolean
+    convertedToSaleId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    warehousesId?: boolean
+    quotationNo?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+  }, ExtArgs["result"]["quotation_online"]>
+
+  export type Quotation_onlineSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    selectedCustomerId?: boolean
+    taxRate?: boolean
+    subTotal?: boolean
+    notes?: boolean
+    grandTotal?: boolean
+    validUntil?: boolean
+    status?: boolean
+    convertedToSaleId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    warehousesId?: boolean
+    quotationNo?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+  }, ExtArgs["result"]["quotation_online"]>
+
+  export type Quotation_onlineSelectScalar = {
+    id?: boolean
+    selectedCustomerId?: boolean
+    taxRate?: boolean
+    subTotal?: boolean
+    notes?: boolean
+    grandTotal?: boolean
+    validUntil?: boolean
+    status?: boolean
+    convertedToSaleId?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    warehousesId?: boolean
+    quotationNo?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+  }
+
+  export type Quotation_onlineOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "selectedCustomerId" | "taxRate" | "subTotal" | "notes" | "grandTotal" | "validUntil" | "status" | "convertedToSaleId" | "createdAt" | "updatedAt" | "warehousesId" | "quotationNo" | "sync" | "syncedAt" | "isDeleted", ExtArgs["result"]["quotation_online"]>
+  export type Quotation_onlineInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    quotationItems?: boolean | Quotation_online$quotationItemsArgs<ExtArgs>
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+    _count?: boolean | Quotation_onlineCountOutputTypeDefaultArgs<ExtArgs>
+  }
+  export type Quotation_onlineIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+  }
+  export type Quotation_onlineIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    selectedCustomer?: boolean | Quotation_online$selectedCustomerArgs<ExtArgs>
+    warehouses?: boolean | Quotation_online$warehousesArgs<ExtArgs>
+  }
+
+  export type $Quotation_onlinePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Quotation_online"
+    objects: {
+      quotationItems: Prisma.$QuotationItem_onlinePayload<ExtArgs>[]
+      selectedCustomer: Prisma.$Customer_onlinePayload<ExtArgs> | null
+      warehouses: Prisma.$Warehouses_onlinePayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      selectedCustomerId: string | null
+      taxRate: number
+      subTotal: number
+      notes: string | null
+      grandTotal: number
+      validUntil: Date | null
+      status: string
+      convertedToSaleId: string | null
+      createdAt: Date
+      updatedAt: Date
+      warehousesId: string | null
+      quotationNo: string
+      sync: boolean
+      syncedAt: Date | null
+      isDeleted: boolean
+    }, ExtArgs["result"]["quotation_online"]>
+    composites: {}
+  }
+
+  type Quotation_onlineGetPayload<S extends boolean | null | undefined | Quotation_onlineDefaultArgs> = $Result.GetResult<Prisma.$Quotation_onlinePayload, S>
+
+  type Quotation_onlineCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<Quotation_onlineFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: Quotation_onlineCountAggregateInputType | true
+    }
+
+  export interface Quotation_onlineDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Quotation_online'], meta: { name: 'Quotation_online' } }
+    /**
+     * Find zero or one Quotation_online that matches the filter.
+     * @param {Quotation_onlineFindUniqueArgs} args - Arguments to find a Quotation_online
+     * @example
+     * // Get one Quotation_online
+     * const quotation_online = await prisma.quotation_online.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends Quotation_onlineFindUniqueArgs>(args: SelectSubset<T, Quotation_onlineFindUniqueArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Quotation_online that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {Quotation_onlineFindUniqueOrThrowArgs} args - Arguments to find a Quotation_online
+     * @example
+     * // Get one Quotation_online
+     * const quotation_online = await prisma.quotation_online.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends Quotation_onlineFindUniqueOrThrowArgs>(args: SelectSubset<T, Quotation_onlineFindUniqueOrThrowArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Quotation_online that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineFindFirstArgs} args - Arguments to find a Quotation_online
+     * @example
+     * // Get one Quotation_online
+     * const quotation_online = await prisma.quotation_online.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends Quotation_onlineFindFirstArgs>(args?: SelectSubset<T, Quotation_onlineFindFirstArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Quotation_online that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineFindFirstOrThrowArgs} args - Arguments to find a Quotation_online
+     * @example
+     * // Get one Quotation_online
+     * const quotation_online = await prisma.quotation_online.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends Quotation_onlineFindFirstOrThrowArgs>(args?: SelectSubset<T, Quotation_onlineFindFirstOrThrowArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Quotation_onlines that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Quotation_onlines
+     * const quotation_onlines = await prisma.quotation_online.findMany()
+     * 
+     * // Get first 10 Quotation_onlines
+     * const quotation_onlines = await prisma.quotation_online.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const quotation_onlineWithIdOnly = await prisma.quotation_online.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends Quotation_onlineFindManyArgs>(args?: SelectSubset<T, Quotation_onlineFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Quotation_online.
+     * @param {Quotation_onlineCreateArgs} args - Arguments to create a Quotation_online.
+     * @example
+     * // Create one Quotation_online
+     * const Quotation_online = await prisma.quotation_online.create({
+     *   data: {
+     *     // ... data to create a Quotation_online
+     *   }
+     * })
+     * 
+     */
+    create<T extends Quotation_onlineCreateArgs>(args: SelectSubset<T, Quotation_onlineCreateArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Quotation_onlines.
+     * @param {Quotation_onlineCreateManyArgs} args - Arguments to create many Quotation_onlines.
+     * @example
+     * // Create many Quotation_onlines
+     * const quotation_online = await prisma.quotation_online.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends Quotation_onlineCreateManyArgs>(args?: SelectSubset<T, Quotation_onlineCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Quotation_onlines and returns the data saved in the database.
+     * @param {Quotation_onlineCreateManyAndReturnArgs} args - Arguments to create many Quotation_onlines.
+     * @example
+     * // Create many Quotation_onlines
+     * const quotation_online = await prisma.quotation_online.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Quotation_onlines and only return the `id`
+     * const quotation_onlineWithIdOnly = await prisma.quotation_online.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends Quotation_onlineCreateManyAndReturnArgs>(args?: SelectSubset<T, Quotation_onlineCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Quotation_online.
+     * @param {Quotation_onlineDeleteArgs} args - Arguments to delete one Quotation_online.
+     * @example
+     * // Delete one Quotation_online
+     * const Quotation_online = await prisma.quotation_online.delete({
+     *   where: {
+     *     // ... filter to delete one Quotation_online
+     *   }
+     * })
+     * 
+     */
+    delete<T extends Quotation_onlineDeleteArgs>(args: SelectSubset<T, Quotation_onlineDeleteArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Quotation_online.
+     * @param {Quotation_onlineUpdateArgs} args - Arguments to update one Quotation_online.
+     * @example
+     * // Update one Quotation_online
+     * const quotation_online = await prisma.quotation_online.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends Quotation_onlineUpdateArgs>(args: SelectSubset<T, Quotation_onlineUpdateArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Quotation_onlines.
+     * @param {Quotation_onlineDeleteManyArgs} args - Arguments to filter Quotation_onlines to delete.
+     * @example
+     * // Delete a few Quotation_onlines
+     * const { count } = await prisma.quotation_online.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends Quotation_onlineDeleteManyArgs>(args?: SelectSubset<T, Quotation_onlineDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Quotation_onlines.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Quotation_onlines
+     * const quotation_online = await prisma.quotation_online.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends Quotation_onlineUpdateManyArgs>(args: SelectSubset<T, Quotation_onlineUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Quotation_onlines and returns the data updated in the database.
+     * @param {Quotation_onlineUpdateManyAndReturnArgs} args - Arguments to update many Quotation_onlines.
+     * @example
+     * // Update many Quotation_onlines
+     * const quotation_online = await prisma.quotation_online.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Quotation_onlines and only return the `id`
+     * const quotation_onlineWithIdOnly = await prisma.quotation_online.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends Quotation_onlineUpdateManyAndReturnArgs>(args: SelectSubset<T, Quotation_onlineUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Quotation_online.
+     * @param {Quotation_onlineUpsertArgs} args - Arguments to update or create a Quotation_online.
+     * @example
+     * // Update or create a Quotation_online
+     * const quotation_online = await prisma.quotation_online.upsert({
+     *   create: {
+     *     // ... data to create a Quotation_online
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Quotation_online we want to update
+     *   }
+     * })
+     */
+    upsert<T extends Quotation_onlineUpsertArgs>(args: SelectSubset<T, Quotation_onlineUpsertArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Quotation_onlines.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineCountArgs} args - Arguments to filter Quotation_onlines to count.
+     * @example
+     * // Count the number of Quotation_onlines
+     * const count = await prisma.quotation_online.count({
+     *   where: {
+     *     // ... the filter for the Quotation_onlines we want to count
+     *   }
+     * })
+    **/
+    count<T extends Quotation_onlineCountArgs>(
+      args?: Subset<T, Quotation_onlineCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], Quotation_onlineCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Quotation_online.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends Quotation_onlineAggregateArgs>(args: Subset<T, Quotation_onlineAggregateArgs>): Prisma.PrismaPromise<GetQuotation_onlineAggregateType<T>>
+
+    /**
+     * Group by Quotation_online.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {Quotation_onlineGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends Quotation_onlineGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: Quotation_onlineGroupByArgs['orderBy'] }
+        : { orderBy?: Quotation_onlineGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, Quotation_onlineGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetQuotation_onlineGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Quotation_online model
+   */
+  readonly fields: Quotation_onlineFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Quotation_online.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__Quotation_onlineClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    quotationItems<T extends Quotation_online$quotationItemsArgs<ExtArgs> = {}>(args?: Subset<T, Quotation_online$quotationItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    selectedCustomer<T extends Quotation_online$selectedCustomerArgs<ExtArgs> = {}>(args?: Subset<T, Quotation_online$selectedCustomerArgs<ExtArgs>>): Prisma__Customer_onlineClient<$Result.GetResult<Prisma.$Customer_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    warehouses<T extends Quotation_online$warehousesArgs<ExtArgs> = {}>(args?: Subset<T, Quotation_online$warehousesArgs<ExtArgs>>): Prisma__Warehouses_onlineClient<$Result.GetResult<Prisma.$Warehouses_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Quotation_online model
+   */
+  interface Quotation_onlineFieldRefs {
+    readonly id: FieldRef<"Quotation_online", 'String'>
+    readonly selectedCustomerId: FieldRef<"Quotation_online", 'String'>
+    readonly taxRate: FieldRef<"Quotation_online", 'Float'>
+    readonly subTotal: FieldRef<"Quotation_online", 'Float'>
+    readonly notes: FieldRef<"Quotation_online", 'String'>
+    readonly grandTotal: FieldRef<"Quotation_online", 'Float'>
+    readonly validUntil: FieldRef<"Quotation_online", 'DateTime'>
+    readonly status: FieldRef<"Quotation_online", 'String'>
+    readonly convertedToSaleId: FieldRef<"Quotation_online", 'String'>
+    readonly createdAt: FieldRef<"Quotation_online", 'DateTime'>
+    readonly updatedAt: FieldRef<"Quotation_online", 'DateTime'>
+    readonly warehousesId: FieldRef<"Quotation_online", 'String'>
+    readonly quotationNo: FieldRef<"Quotation_online", 'String'>
+    readonly sync: FieldRef<"Quotation_online", 'Boolean'>
+    readonly syncedAt: FieldRef<"Quotation_online", 'DateTime'>
+    readonly isDeleted: FieldRef<"Quotation_online", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Quotation_online findUnique
+   */
+  export type Quotation_onlineFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which Quotation_online to fetch.
+     */
+    where: Quotation_onlineWhereUniqueInput
+  }
+
+  /**
+   * Quotation_online findUniqueOrThrow
+   */
+  export type Quotation_onlineFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which Quotation_online to fetch.
+     */
+    where: Quotation_onlineWhereUniqueInput
+  }
+
+  /**
+   * Quotation_online findFirst
+   */
+  export type Quotation_onlineFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which Quotation_online to fetch.
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Quotation_onlines to fetch.
+     */
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Quotation_onlines.
+     */
+    cursor?: Quotation_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Quotation_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Quotation_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Quotation_onlines.
+     */
+    distinct?: Quotation_onlineScalarFieldEnum | Quotation_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Quotation_online findFirstOrThrow
+   */
+  export type Quotation_onlineFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which Quotation_online to fetch.
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Quotation_onlines to fetch.
+     */
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Quotation_onlines.
+     */
+    cursor?: Quotation_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Quotation_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Quotation_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Quotation_onlines.
+     */
+    distinct?: Quotation_onlineScalarFieldEnum | Quotation_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Quotation_online findMany
+   */
+  export type Quotation_onlineFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which Quotation_onlines to fetch.
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Quotation_onlines to fetch.
+     */
+    orderBy?: Quotation_onlineOrderByWithRelationInput | Quotation_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Quotation_onlines.
+     */
+    cursor?: Quotation_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Quotation_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Quotation_onlines.
+     */
+    skip?: number
+    distinct?: Quotation_onlineScalarFieldEnum | Quotation_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Quotation_online create
+   */
+  export type Quotation_onlineCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Quotation_online.
+     */
+    data: XOR<Quotation_onlineCreateInput, Quotation_onlineUncheckedCreateInput>
+  }
+
+  /**
+   * Quotation_online createMany
+   */
+  export type Quotation_onlineCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Quotation_onlines.
+     */
+    data: Quotation_onlineCreateManyInput | Quotation_onlineCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Quotation_online createManyAndReturn
+   */
+  export type Quotation_onlineCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * The data used to create many Quotation_onlines.
+     */
+    data: Quotation_onlineCreateManyInput | Quotation_onlineCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Quotation_online update
+   */
+  export type Quotation_onlineUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Quotation_online.
+     */
+    data: XOR<Quotation_onlineUpdateInput, Quotation_onlineUncheckedUpdateInput>
+    /**
+     * Choose, which Quotation_online to update.
+     */
+    where: Quotation_onlineWhereUniqueInput
+  }
+
+  /**
+   * Quotation_online updateMany
+   */
+  export type Quotation_onlineUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Quotation_onlines.
+     */
+    data: XOR<Quotation_onlineUpdateManyMutationInput, Quotation_onlineUncheckedUpdateManyInput>
+    /**
+     * Filter which Quotation_onlines to update
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * Limit how many Quotation_onlines to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Quotation_online updateManyAndReturn
+   */
+  export type Quotation_onlineUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * The data used to update Quotation_onlines.
+     */
+    data: XOR<Quotation_onlineUpdateManyMutationInput, Quotation_onlineUncheckedUpdateManyInput>
+    /**
+     * Filter which Quotation_onlines to update
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * Limit how many Quotation_onlines to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Quotation_online upsert
+   */
+  export type Quotation_onlineUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Quotation_online to update in case it exists.
+     */
+    where: Quotation_onlineWhereUniqueInput
+    /**
+     * In case the Quotation_online found by the `where` argument doesn't exist, create a new Quotation_online with this data.
+     */
+    create: XOR<Quotation_onlineCreateInput, Quotation_onlineUncheckedCreateInput>
+    /**
+     * In case the Quotation_online was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<Quotation_onlineUpdateInput, Quotation_onlineUncheckedUpdateInput>
+  }
+
+  /**
+   * Quotation_online delete
+   */
+  export type Quotation_onlineDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    /**
+     * Filter which Quotation_online to delete.
+     */
+    where: Quotation_onlineWhereUniqueInput
+  }
+
+  /**
+   * Quotation_online deleteMany
+   */
+  export type Quotation_onlineDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Quotation_onlines to delete
+     */
+    where?: Quotation_onlineWhereInput
+    /**
+     * Limit how many Quotation_onlines to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Quotation_online.quotationItems
+   */
+  export type Quotation_online$quotationItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    where?: QuotationItem_onlineWhereInput
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * Quotation_online.selectedCustomer
+   */
+  export type Quotation_online$selectedCustomerArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Customer_online
+     */
+    select?: Customer_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Customer_online
+     */
+    omit?: Customer_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Customer_onlineInclude<ExtArgs> | null
+    where?: Customer_onlineWhereInput
+  }
+
+  /**
+   * Quotation_online.warehouses
+   */
+  export type Quotation_online$warehousesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warehouses_online
+     */
+    select?: Warehouses_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warehouses_online
+     */
+    omit?: Warehouses_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Warehouses_onlineInclude<ExtArgs> | null
+    where?: Warehouses_onlineWhereInput
+  }
+
+  /**
+   * Quotation_online without action
+   */
+  export type Quotation_onlineDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model QuotationItem_online
+   */
+
+  export type AggregateQuotationItem_online = {
+    _count: QuotationItem_onlineCountAggregateOutputType | null
+    _avg: QuotationItem_onlineAvgAggregateOutputType | null
+    _sum: QuotationItem_onlineSumAggregateOutputType | null
+    _min: QuotationItem_onlineMinAggregateOutputType | null
+    _max: QuotationItem_onlineMaxAggregateOutputType | null
+  }
+
+  export type QuotationItem_onlineAvgAggregateOutputType = {
+    cost: number | null
+    selectedPrice: number | null
+    quantity: number | null
+    discount: number | null
+    total: number | null
+  }
+
+  export type QuotationItem_onlineSumAggregateOutputType = {
+    cost: number | null
+    selectedPrice: number | null
+    quantity: number | null
+    discount: number | null
+    total: number | null
+  }
+
+  export type QuotationItem_onlineMinAggregateOutputType = {
+    id: string | null
+    quotationId: string | null
+    productId: string | null
+    productName: string | null
+    cost: number | null
+    selectedPrice: number | null
+    priceType: string | null
+    quantity: number | null
+    discount: number | null
+    total: number | null
+    warehousesId: string | null
+    sync: boolean | null
+    syncedAt: Date | null
+    isDeleted: boolean | null
+  }
+
+  export type QuotationItem_onlineMaxAggregateOutputType = {
+    id: string | null
+    quotationId: string | null
+    productId: string | null
+    productName: string | null
+    cost: number | null
+    selectedPrice: number | null
+    priceType: string | null
+    quantity: number | null
+    discount: number | null
+    total: number | null
+    warehousesId: string | null
+    sync: boolean | null
+    syncedAt: Date | null
+    isDeleted: boolean | null
+  }
+
+  export type QuotationItem_onlineCountAggregateOutputType = {
+    id: number
+    quotationId: number
+    productId: number
+    productName: number
+    cost: number
+    selectedPrice: number
+    priceType: number
+    quantity: number
+    discount: number
+    total: number
+    warehousesId: number
+    sync: number
+    syncedAt: number
+    isDeleted: number
+    _all: number
+  }
+
+
+  export type QuotationItem_onlineAvgAggregateInputType = {
+    cost?: true
+    selectedPrice?: true
+    quantity?: true
+    discount?: true
+    total?: true
+  }
+
+  export type QuotationItem_onlineSumAggregateInputType = {
+    cost?: true
+    selectedPrice?: true
+    quantity?: true
+    discount?: true
+    total?: true
+  }
+
+  export type QuotationItem_onlineMinAggregateInputType = {
+    id?: true
+    quotationId?: true
+    productId?: true
+    productName?: true
+    cost?: true
+    selectedPrice?: true
+    priceType?: true
+    quantity?: true
+    discount?: true
+    total?: true
+    warehousesId?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+  }
+
+  export type QuotationItem_onlineMaxAggregateInputType = {
+    id?: true
+    quotationId?: true
+    productId?: true
+    productName?: true
+    cost?: true
+    selectedPrice?: true
+    priceType?: true
+    quantity?: true
+    discount?: true
+    total?: true
+    warehousesId?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+  }
+
+  export type QuotationItem_onlineCountAggregateInputType = {
+    id?: true
+    quotationId?: true
+    productId?: true
+    productName?: true
+    cost?: true
+    selectedPrice?: true
+    priceType?: true
+    quantity?: true
+    discount?: true
+    total?: true
+    warehousesId?: true
+    sync?: true
+    syncedAt?: true
+    isDeleted?: true
+    _all?: true
+  }
+
+  export type QuotationItem_onlineAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which QuotationItem_online to aggregate.
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of QuotationItem_onlines to fetch.
+     */
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` QuotationItem_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` QuotationItem_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned QuotationItem_onlines
+    **/
+    _count?: true | QuotationItem_onlineCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: QuotationItem_onlineAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: QuotationItem_onlineSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: QuotationItem_onlineMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: QuotationItem_onlineMaxAggregateInputType
+  }
+
+  export type GetQuotationItem_onlineAggregateType<T extends QuotationItem_onlineAggregateArgs> = {
+        [P in keyof T & keyof AggregateQuotationItem_online]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateQuotationItem_online[P]>
+      : GetScalarType<T[P], AggregateQuotationItem_online[P]>
+  }
+
+
+
+
+  export type QuotationItem_onlineGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: QuotationItem_onlineWhereInput
+    orderBy?: QuotationItem_onlineOrderByWithAggregationInput | QuotationItem_onlineOrderByWithAggregationInput[]
+    by: QuotationItem_onlineScalarFieldEnum[] | QuotationItem_onlineScalarFieldEnum
+    having?: QuotationItem_onlineScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: QuotationItem_onlineCountAggregateInputType | true
+    _avg?: QuotationItem_onlineAvgAggregateInputType
+    _sum?: QuotationItem_onlineSumAggregateInputType
+    _min?: QuotationItem_onlineMinAggregateInputType
+    _max?: QuotationItem_onlineMaxAggregateInputType
+  }
+
+  export type QuotationItem_onlineGroupByOutputType = {
+    id: string
+    quotationId: string | null
+    productId: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId: string | null
+    sync: boolean
+    syncedAt: Date | null
+    isDeleted: boolean
+    _count: QuotationItem_onlineCountAggregateOutputType | null
+    _avg: QuotationItem_onlineAvgAggregateOutputType | null
+    _sum: QuotationItem_onlineSumAggregateOutputType | null
+    _min: QuotationItem_onlineMinAggregateOutputType | null
+    _max: QuotationItem_onlineMaxAggregateOutputType | null
+  }
+
+  type GetQuotationItem_onlineGroupByPayload<T extends QuotationItem_onlineGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<QuotationItem_onlineGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof QuotationItem_onlineGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], QuotationItem_onlineGroupByOutputType[P]>
+            : GetScalarType<T[P], QuotationItem_onlineGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type QuotationItem_onlineSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    quotationId?: boolean
+    productId?: boolean
+    productName?: boolean
+    cost?: boolean
+    selectedPrice?: boolean
+    priceType?: boolean
+    quantity?: boolean
+    discount?: boolean
+    total?: boolean
+    warehousesId?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }, ExtArgs["result"]["quotationItem_online"]>
+
+  export type QuotationItem_onlineSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    quotationId?: boolean
+    productId?: boolean
+    productName?: boolean
+    cost?: boolean
+    selectedPrice?: boolean
+    priceType?: boolean
+    quantity?: boolean
+    discount?: boolean
+    total?: boolean
+    warehousesId?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }, ExtArgs["result"]["quotationItem_online"]>
+
+  export type QuotationItem_onlineSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    quotationId?: boolean
+    productId?: boolean
+    productName?: boolean
+    cost?: boolean
+    selectedPrice?: boolean
+    priceType?: boolean
+    quantity?: boolean
+    discount?: boolean
+    total?: boolean
+    warehousesId?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }, ExtArgs["result"]["quotationItem_online"]>
+
+  export type QuotationItem_onlineSelectScalar = {
+    id?: boolean
+    quotationId?: boolean
+    productId?: boolean
+    productName?: boolean
+    cost?: boolean
+    selectedPrice?: boolean
+    priceType?: boolean
+    quantity?: boolean
+    discount?: boolean
+    total?: boolean
+    warehousesId?: boolean
+    sync?: boolean
+    syncedAt?: boolean
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "quotationId" | "productId" | "productName" | "cost" | "selectedPrice" | "priceType" | "quantity" | "discount" | "total" | "warehousesId" | "sync" | "syncedAt" | "isDeleted", ExtArgs["result"]["quotationItem_online"]>
+  export type QuotationItem_onlineInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }
+  export type QuotationItem_onlineIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }
+  export type QuotationItem_onlineIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    quotation?: boolean | QuotationItem_online$quotationArgs<ExtArgs>
+    product?: boolean | QuotationItem_online$productArgs<ExtArgs>
+    warehouses?: boolean | QuotationItem_online$warehousesArgs<ExtArgs>
+  }
+
+  export type $QuotationItem_onlinePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "QuotationItem_online"
+    objects: {
+      quotation: Prisma.$Quotation_onlinePayload<ExtArgs> | null
+      product: Prisma.$Product_onlinePayload<ExtArgs> | null
+      warehouses: Prisma.$Warehouses_onlinePayload<ExtArgs> | null
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      quotationId: string | null
+      productId: string | null
+      productName: string
+      cost: number
+      selectedPrice: number
+      priceType: string
+      quantity: number
+      discount: number
+      total: number
+      warehousesId: string | null
+      sync: boolean
+      syncedAt: Date | null
+      isDeleted: boolean
+    }, ExtArgs["result"]["quotationItem_online"]>
+    composites: {}
+  }
+
+  type QuotationItem_onlineGetPayload<S extends boolean | null | undefined | QuotationItem_onlineDefaultArgs> = $Result.GetResult<Prisma.$QuotationItem_onlinePayload, S>
+
+  type QuotationItem_onlineCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<QuotationItem_onlineFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: QuotationItem_onlineCountAggregateInputType | true
+    }
+
+  export interface QuotationItem_onlineDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['QuotationItem_online'], meta: { name: 'QuotationItem_online' } }
+    /**
+     * Find zero or one QuotationItem_online that matches the filter.
+     * @param {QuotationItem_onlineFindUniqueArgs} args - Arguments to find a QuotationItem_online
+     * @example
+     * // Get one QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends QuotationItem_onlineFindUniqueArgs>(args: SelectSubset<T, QuotationItem_onlineFindUniqueArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one QuotationItem_online that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {QuotationItem_onlineFindUniqueOrThrowArgs} args - Arguments to find a QuotationItem_online
+     * @example
+     * // Get one QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends QuotationItem_onlineFindUniqueOrThrowArgs>(args: SelectSubset<T, QuotationItem_onlineFindUniqueOrThrowArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first QuotationItem_online that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineFindFirstArgs} args - Arguments to find a QuotationItem_online
+     * @example
+     * // Get one QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends QuotationItem_onlineFindFirstArgs>(args?: SelectSubset<T, QuotationItem_onlineFindFirstArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first QuotationItem_online that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineFindFirstOrThrowArgs} args - Arguments to find a QuotationItem_online
+     * @example
+     * // Get one QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends QuotationItem_onlineFindFirstOrThrowArgs>(args?: SelectSubset<T, QuotationItem_onlineFindFirstOrThrowArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more QuotationItem_onlines that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all QuotationItem_onlines
+     * const quotationItem_onlines = await prisma.quotationItem_online.findMany()
+     * 
+     * // Get first 10 QuotationItem_onlines
+     * const quotationItem_onlines = await prisma.quotationItem_online.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const quotationItem_onlineWithIdOnly = await prisma.quotationItem_online.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends QuotationItem_onlineFindManyArgs>(args?: SelectSubset<T, QuotationItem_onlineFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a QuotationItem_online.
+     * @param {QuotationItem_onlineCreateArgs} args - Arguments to create a QuotationItem_online.
+     * @example
+     * // Create one QuotationItem_online
+     * const QuotationItem_online = await prisma.quotationItem_online.create({
+     *   data: {
+     *     // ... data to create a QuotationItem_online
+     *   }
+     * })
+     * 
+     */
+    create<T extends QuotationItem_onlineCreateArgs>(args: SelectSubset<T, QuotationItem_onlineCreateArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many QuotationItem_onlines.
+     * @param {QuotationItem_onlineCreateManyArgs} args - Arguments to create many QuotationItem_onlines.
+     * @example
+     * // Create many QuotationItem_onlines
+     * const quotationItem_online = await prisma.quotationItem_online.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends QuotationItem_onlineCreateManyArgs>(args?: SelectSubset<T, QuotationItem_onlineCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many QuotationItem_onlines and returns the data saved in the database.
+     * @param {QuotationItem_onlineCreateManyAndReturnArgs} args - Arguments to create many QuotationItem_onlines.
+     * @example
+     * // Create many QuotationItem_onlines
+     * const quotationItem_online = await prisma.quotationItem_online.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many QuotationItem_onlines and only return the `id`
+     * const quotationItem_onlineWithIdOnly = await prisma.quotationItem_online.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends QuotationItem_onlineCreateManyAndReturnArgs>(args?: SelectSubset<T, QuotationItem_onlineCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a QuotationItem_online.
+     * @param {QuotationItem_onlineDeleteArgs} args - Arguments to delete one QuotationItem_online.
+     * @example
+     * // Delete one QuotationItem_online
+     * const QuotationItem_online = await prisma.quotationItem_online.delete({
+     *   where: {
+     *     // ... filter to delete one QuotationItem_online
+     *   }
+     * })
+     * 
+     */
+    delete<T extends QuotationItem_onlineDeleteArgs>(args: SelectSubset<T, QuotationItem_onlineDeleteArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one QuotationItem_online.
+     * @param {QuotationItem_onlineUpdateArgs} args - Arguments to update one QuotationItem_online.
+     * @example
+     * // Update one QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends QuotationItem_onlineUpdateArgs>(args: SelectSubset<T, QuotationItem_onlineUpdateArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more QuotationItem_onlines.
+     * @param {QuotationItem_onlineDeleteManyArgs} args - Arguments to filter QuotationItem_onlines to delete.
+     * @example
+     * // Delete a few QuotationItem_onlines
+     * const { count } = await prisma.quotationItem_online.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends QuotationItem_onlineDeleteManyArgs>(args?: SelectSubset<T, QuotationItem_onlineDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more QuotationItem_onlines.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many QuotationItem_onlines
+     * const quotationItem_online = await prisma.quotationItem_online.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends QuotationItem_onlineUpdateManyArgs>(args: SelectSubset<T, QuotationItem_onlineUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more QuotationItem_onlines and returns the data updated in the database.
+     * @param {QuotationItem_onlineUpdateManyAndReturnArgs} args - Arguments to update many QuotationItem_onlines.
+     * @example
+     * // Update many QuotationItem_onlines
+     * const quotationItem_online = await prisma.quotationItem_online.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more QuotationItem_onlines and only return the `id`
+     * const quotationItem_onlineWithIdOnly = await prisma.quotationItem_online.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends QuotationItem_onlineUpdateManyAndReturnArgs>(args: SelectSubset<T, QuotationItem_onlineUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one QuotationItem_online.
+     * @param {QuotationItem_onlineUpsertArgs} args - Arguments to update or create a QuotationItem_online.
+     * @example
+     * // Update or create a QuotationItem_online
+     * const quotationItem_online = await prisma.quotationItem_online.upsert({
+     *   create: {
+     *     // ... data to create a QuotationItem_online
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the QuotationItem_online we want to update
+     *   }
+     * })
+     */
+    upsert<T extends QuotationItem_onlineUpsertArgs>(args: SelectSubset<T, QuotationItem_onlineUpsertArgs<ExtArgs>>): Prisma__QuotationItem_onlineClient<$Result.GetResult<Prisma.$QuotationItem_onlinePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of QuotationItem_onlines.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineCountArgs} args - Arguments to filter QuotationItem_onlines to count.
+     * @example
+     * // Count the number of QuotationItem_onlines
+     * const count = await prisma.quotationItem_online.count({
+     *   where: {
+     *     // ... the filter for the QuotationItem_onlines we want to count
+     *   }
+     * })
+    **/
+    count<T extends QuotationItem_onlineCountArgs>(
+      args?: Subset<T, QuotationItem_onlineCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], QuotationItem_onlineCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a QuotationItem_online.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends QuotationItem_onlineAggregateArgs>(args: Subset<T, QuotationItem_onlineAggregateArgs>): Prisma.PrismaPromise<GetQuotationItem_onlineAggregateType<T>>
+
+    /**
+     * Group by QuotationItem_online.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {QuotationItem_onlineGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends QuotationItem_onlineGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: QuotationItem_onlineGroupByArgs['orderBy'] }
+        : { orderBy?: QuotationItem_onlineGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, QuotationItem_onlineGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetQuotationItem_onlineGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the QuotationItem_online model
+   */
+  readonly fields: QuotationItem_onlineFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for QuotationItem_online.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__QuotationItem_onlineClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    quotation<T extends QuotationItem_online$quotationArgs<ExtArgs> = {}>(args?: Subset<T, QuotationItem_online$quotationArgs<ExtArgs>>): Prisma__Quotation_onlineClient<$Result.GetResult<Prisma.$Quotation_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    product<T extends QuotationItem_online$productArgs<ExtArgs> = {}>(args?: Subset<T, QuotationItem_online$productArgs<ExtArgs>>): Prisma__Product_onlineClient<$Result.GetResult<Prisma.$Product_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    warehouses<T extends QuotationItem_online$warehousesArgs<ExtArgs> = {}>(args?: Subset<T, QuotationItem_online$warehousesArgs<ExtArgs>>): Prisma__Warehouses_onlineClient<$Result.GetResult<Prisma.$Warehouses_onlinePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the QuotationItem_online model
+   */
+  interface QuotationItem_onlineFieldRefs {
+    readonly id: FieldRef<"QuotationItem_online", 'String'>
+    readonly quotationId: FieldRef<"QuotationItem_online", 'String'>
+    readonly productId: FieldRef<"QuotationItem_online", 'String'>
+    readonly productName: FieldRef<"QuotationItem_online", 'String'>
+    readonly cost: FieldRef<"QuotationItem_online", 'Float'>
+    readonly selectedPrice: FieldRef<"QuotationItem_online", 'Float'>
+    readonly priceType: FieldRef<"QuotationItem_online", 'String'>
+    readonly quantity: FieldRef<"QuotationItem_online", 'Int'>
+    readonly discount: FieldRef<"QuotationItem_online", 'Float'>
+    readonly total: FieldRef<"QuotationItem_online", 'Float'>
+    readonly warehousesId: FieldRef<"QuotationItem_online", 'String'>
+    readonly sync: FieldRef<"QuotationItem_online", 'Boolean'>
+    readonly syncedAt: FieldRef<"QuotationItem_online", 'DateTime'>
+    readonly isDeleted: FieldRef<"QuotationItem_online", 'Boolean'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * QuotationItem_online findUnique
+   */
+  export type QuotationItem_onlineFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which QuotationItem_online to fetch.
+     */
+    where: QuotationItem_onlineWhereUniqueInput
+  }
+
+  /**
+   * QuotationItem_online findUniqueOrThrow
+   */
+  export type QuotationItem_onlineFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which QuotationItem_online to fetch.
+     */
+    where: QuotationItem_onlineWhereUniqueInput
+  }
+
+  /**
+   * QuotationItem_online findFirst
+   */
+  export type QuotationItem_onlineFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which QuotationItem_online to fetch.
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of QuotationItem_onlines to fetch.
+     */
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for QuotationItem_onlines.
+     */
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` QuotationItem_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` QuotationItem_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of QuotationItem_onlines.
+     */
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * QuotationItem_online findFirstOrThrow
+   */
+  export type QuotationItem_onlineFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which QuotationItem_online to fetch.
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of QuotationItem_onlines to fetch.
+     */
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for QuotationItem_onlines.
+     */
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` QuotationItem_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` QuotationItem_onlines.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of QuotationItem_onlines.
+     */
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * QuotationItem_online findMany
+   */
+  export type QuotationItem_onlineFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter, which QuotationItem_onlines to fetch.
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of QuotationItem_onlines to fetch.
+     */
+    orderBy?: QuotationItem_onlineOrderByWithRelationInput | QuotationItem_onlineOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing QuotationItem_onlines.
+     */
+    cursor?: QuotationItem_onlineWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` QuotationItem_onlines from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` QuotationItem_onlines.
+     */
+    skip?: number
+    distinct?: QuotationItem_onlineScalarFieldEnum | QuotationItem_onlineScalarFieldEnum[]
+  }
+
+  /**
+   * QuotationItem_online create
+   */
+  export type QuotationItem_onlineCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * The data needed to create a QuotationItem_online.
+     */
+    data: XOR<QuotationItem_onlineCreateInput, QuotationItem_onlineUncheckedCreateInput>
+  }
+
+  /**
+   * QuotationItem_online createMany
+   */
+  export type QuotationItem_onlineCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many QuotationItem_onlines.
+     */
+    data: QuotationItem_onlineCreateManyInput | QuotationItem_onlineCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * QuotationItem_online createManyAndReturn
+   */
+  export type QuotationItem_onlineCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * The data used to create many QuotationItem_onlines.
+     */
+    data: QuotationItem_onlineCreateManyInput | QuotationItem_onlineCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * QuotationItem_online update
+   */
+  export type QuotationItem_onlineUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * The data needed to update a QuotationItem_online.
+     */
+    data: XOR<QuotationItem_onlineUpdateInput, QuotationItem_onlineUncheckedUpdateInput>
+    /**
+     * Choose, which QuotationItem_online to update.
+     */
+    where: QuotationItem_onlineWhereUniqueInput
+  }
+
+  /**
+   * QuotationItem_online updateMany
+   */
+  export type QuotationItem_onlineUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update QuotationItem_onlines.
+     */
+    data: XOR<QuotationItem_onlineUpdateManyMutationInput, QuotationItem_onlineUncheckedUpdateManyInput>
+    /**
+     * Filter which QuotationItem_onlines to update
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * Limit how many QuotationItem_onlines to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * QuotationItem_online updateManyAndReturn
+   */
+  export type QuotationItem_onlineUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * The data used to update QuotationItem_onlines.
+     */
+    data: XOR<QuotationItem_onlineUpdateManyMutationInput, QuotationItem_onlineUncheckedUpdateManyInput>
+    /**
+     * Filter which QuotationItem_onlines to update
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * Limit how many QuotationItem_onlines to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * QuotationItem_online upsert
+   */
+  export type QuotationItem_onlineUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * The filter to search for the QuotationItem_online to update in case it exists.
+     */
+    where: QuotationItem_onlineWhereUniqueInput
+    /**
+     * In case the QuotationItem_online found by the `where` argument doesn't exist, create a new QuotationItem_online with this data.
+     */
+    create: XOR<QuotationItem_onlineCreateInput, QuotationItem_onlineUncheckedCreateInput>
+    /**
+     * In case the QuotationItem_online was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<QuotationItem_onlineUpdateInput, QuotationItem_onlineUncheckedUpdateInput>
+  }
+
+  /**
+   * QuotationItem_online delete
+   */
+  export type QuotationItem_onlineDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+    /**
+     * Filter which QuotationItem_online to delete.
+     */
+    where: QuotationItem_onlineWhereUniqueInput
+  }
+
+  /**
+   * QuotationItem_online deleteMany
+   */
+  export type QuotationItem_onlineDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which QuotationItem_onlines to delete
+     */
+    where?: QuotationItem_onlineWhereInput
+    /**
+     * Limit how many QuotationItem_onlines to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * QuotationItem_online.quotation
+   */
+  export type QuotationItem_online$quotationArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Quotation_online
+     */
+    select?: Quotation_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Quotation_online
+     */
+    omit?: Quotation_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Quotation_onlineInclude<ExtArgs> | null
+    where?: Quotation_onlineWhereInput
+  }
+
+  /**
+   * QuotationItem_online.product
+   */
+  export type QuotationItem_online$productArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Product_online
+     */
+    select?: Product_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Product_online
+     */
+    omit?: Product_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Product_onlineInclude<ExtArgs> | null
+    where?: Product_onlineWhereInput
+  }
+
+  /**
+   * QuotationItem_online.warehouses
+   */
+  export type QuotationItem_online$warehousesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Warehouses_online
+     */
+    select?: Warehouses_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Warehouses_online
+     */
+    omit?: Warehouses_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Warehouses_onlineInclude<ExtArgs> | null
+    where?: Warehouses_onlineWhereInput
+  }
+
+  /**
+   * QuotationItem_online without action
+   */
+  export type QuotationItem_onlineDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the QuotationItem_online
+     */
+    select?: QuotationItem_onlineSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the QuotationItem_online
+     */
+    omit?: QuotationItem_onlineOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: QuotationItem_onlineInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Enums
    */
 
@@ -21012,6 +23990,48 @@ export namespace Prisma {
   };
 
   export type BalancePayment_onlineScalarFieldEnum = (typeof BalancePayment_onlineScalarFieldEnum)[keyof typeof BalancePayment_onlineScalarFieldEnum]
+
+
+  export const Quotation_onlineScalarFieldEnum: {
+    id: 'id',
+    selectedCustomerId: 'selectedCustomerId',
+    taxRate: 'taxRate',
+    subTotal: 'subTotal',
+    notes: 'notes',
+    grandTotal: 'grandTotal',
+    validUntil: 'validUntil',
+    status: 'status',
+    convertedToSaleId: 'convertedToSaleId',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt',
+    warehousesId: 'warehousesId',
+    quotationNo: 'quotationNo',
+    sync: 'sync',
+    syncedAt: 'syncedAt',
+    isDeleted: 'isDeleted'
+  };
+
+  export type Quotation_onlineScalarFieldEnum = (typeof Quotation_onlineScalarFieldEnum)[keyof typeof Quotation_onlineScalarFieldEnum]
+
+
+  export const QuotationItem_onlineScalarFieldEnum: {
+    id: 'id',
+    quotationId: 'quotationId',
+    productId: 'productId',
+    productName: 'productName',
+    cost: 'cost',
+    selectedPrice: 'selectedPrice',
+    priceType: 'priceType',
+    quantity: 'quantity',
+    discount: 'discount',
+    total: 'total',
+    warehousesId: 'warehousesId',
+    sync: 'sync',
+    syncedAt: 'syncedAt',
+    isDeleted: 'isDeleted'
+  };
+
+  export type QuotationItem_onlineScalarFieldEnum = (typeof QuotationItem_onlineScalarFieldEnum)[keyof typeof QuotationItem_onlineScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -21467,6 +24487,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineListRelationFilter
     receiptSettings?: ReceiptSettings_onlineListRelationFilter
     balancePayment?: BalancePayment_onlineListRelationFilter
+    quotation?: Quotation_onlineListRelationFilter
+    quotationItem?: QuotationItem_onlineListRelationFilter
   }
 
   export type Warehouses_onlineOrderByWithRelationInput = {
@@ -21491,6 +24513,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineOrderByRelationAggregateInput
     receiptSettings?: ReceiptSettings_onlineOrderByRelationAggregateInput
     balancePayment?: BalancePayment_onlineOrderByRelationAggregateInput
+    quotation?: Quotation_onlineOrderByRelationAggregateInput
+    quotationItem?: QuotationItem_onlineOrderByRelationAggregateInput
   }
 
   export type Warehouses_onlineWhereUniqueInput = Prisma.AtLeast<{
@@ -21518,6 +24542,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineListRelationFilter
     receiptSettings?: ReceiptSettings_onlineListRelationFilter
     balancePayment?: BalancePayment_onlineListRelationFilter
+    quotation?: Quotation_onlineListRelationFilter
+    quotationItem?: QuotationItem_onlineListRelationFilter
   }, "id" | "warehouseCode">
 
   export type Warehouses_onlineOrderByWithAggregationInput = {
@@ -22073,6 +25099,7 @@ export namespace Prisma {
     Sale?: Sale_onlineListRelationFilter
     saleItem?: SaleItem_onlineListRelationFilter
     balancePayment?: BalancePayment_onlineListRelationFilter
+    quotation?: Quotation_onlineListRelationFilter
     Warehouses_online?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
   }
 
@@ -22093,6 +25120,7 @@ export namespace Prisma {
     Sale?: Sale_onlineOrderByRelationAggregateInput
     saleItem?: SaleItem_onlineOrderByRelationAggregateInput
     balancePayment?: BalancePayment_onlineOrderByRelationAggregateInput
+    quotation?: Quotation_onlineOrderByRelationAggregateInput
     Warehouses_online?: Warehouses_onlineOrderByWithRelationInput
   }
 
@@ -22116,6 +25144,7 @@ export namespace Prisma {
     Sale?: Sale_onlineListRelationFilter
     saleItem?: SaleItem_onlineListRelationFilter
     balancePayment?: BalancePayment_onlineListRelationFilter
+    quotation?: Quotation_onlineListRelationFilter
     Warehouses_online?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
   }, "id">
 
@@ -22277,6 +25306,7 @@ export namespace Prisma {
     isDeleted?: BoolFilter<"Product_online"> | boolean
     SaleItem?: SaleItem_onlineListRelationFilter
     purchaseItem?: PurchaseItem_onlineListRelationFilter
+    quotationItem?: QuotationItem_onlineListRelationFilter
     Warehouses_online?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
   }
 
@@ -22299,6 +25329,7 @@ export namespace Prisma {
     isDeleted?: SortOrder
     SaleItem?: SaleItem_onlineOrderByRelationAggregateInput
     purchaseItem?: PurchaseItem_onlineOrderByRelationAggregateInput
+    quotationItem?: QuotationItem_onlineOrderByRelationAggregateInput
     Warehouses_online?: Warehouses_onlineOrderByWithRelationInput
   }
 
@@ -22324,6 +25355,7 @@ export namespace Prisma {
     isDeleted?: BoolFilter<"Product_online"> | boolean
     SaleItem?: SaleItem_onlineListRelationFilter
     purchaseItem?: PurchaseItem_onlineListRelationFilter
+    quotationItem?: QuotationItem_onlineListRelationFilter
     Warehouses_online?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
   }, "id">
 
@@ -22833,6 +25865,232 @@ export namespace Prisma {
     isDeleted?: BoolWithAggregatesFilter<"BalancePayment_online"> | boolean
   }
 
+  export type Quotation_onlineWhereInput = {
+    AND?: Quotation_onlineWhereInput | Quotation_onlineWhereInput[]
+    OR?: Quotation_onlineWhereInput[]
+    NOT?: Quotation_onlineWhereInput | Quotation_onlineWhereInput[]
+    id?: StringFilter<"Quotation_online"> | string
+    selectedCustomerId?: StringNullableFilter<"Quotation_online"> | string | null
+    taxRate?: FloatFilter<"Quotation_online"> | number
+    subTotal?: FloatFilter<"Quotation_online"> | number
+    notes?: StringNullableFilter<"Quotation_online"> | string | null
+    grandTotal?: FloatFilter<"Quotation_online"> | number
+    validUntil?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    status?: StringFilter<"Quotation_online"> | string
+    convertedToSaleId?: StringNullableFilter<"Quotation_online"> | string | null
+    createdAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    updatedAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    warehousesId?: StringNullableFilter<"Quotation_online"> | string | null
+    quotationNo?: StringFilter<"Quotation_online"> | string
+    sync?: BoolFilter<"Quotation_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    isDeleted?: BoolFilter<"Quotation_online"> | boolean
+    quotationItems?: QuotationItem_onlineListRelationFilter
+    selectedCustomer?: XOR<Customer_onlineNullableScalarRelationFilter, Customer_onlineWhereInput> | null
+    warehouses?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
+  }
+
+  export type Quotation_onlineOrderByWithRelationInput = {
+    id?: SortOrder
+    selectedCustomerId?: SortOrderInput | SortOrder
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    grandTotal?: SortOrder
+    validUntil?: SortOrderInput | SortOrder
+    status?: SortOrder
+    convertedToSaleId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    warehousesId?: SortOrderInput | SortOrder
+    quotationNo?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
+    quotationItems?: QuotationItem_onlineOrderByRelationAggregateInput
+    selectedCustomer?: Customer_onlineOrderByWithRelationInput
+    warehouses?: Warehouses_onlineOrderByWithRelationInput
+  }
+
+  export type Quotation_onlineWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    quotationNo?: string
+    AND?: Quotation_onlineWhereInput | Quotation_onlineWhereInput[]
+    OR?: Quotation_onlineWhereInput[]
+    NOT?: Quotation_onlineWhereInput | Quotation_onlineWhereInput[]
+    selectedCustomerId?: StringNullableFilter<"Quotation_online"> | string | null
+    taxRate?: FloatFilter<"Quotation_online"> | number
+    subTotal?: FloatFilter<"Quotation_online"> | number
+    notes?: StringNullableFilter<"Quotation_online"> | string | null
+    grandTotal?: FloatFilter<"Quotation_online"> | number
+    validUntil?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    status?: StringFilter<"Quotation_online"> | string
+    convertedToSaleId?: StringNullableFilter<"Quotation_online"> | string | null
+    createdAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    updatedAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    warehousesId?: StringNullableFilter<"Quotation_online"> | string | null
+    sync?: BoolFilter<"Quotation_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    isDeleted?: BoolFilter<"Quotation_online"> | boolean
+    quotationItems?: QuotationItem_onlineListRelationFilter
+    selectedCustomer?: XOR<Customer_onlineNullableScalarRelationFilter, Customer_onlineWhereInput> | null
+    warehouses?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
+  }, "id" | "quotationNo">
+
+  export type Quotation_onlineOrderByWithAggregationInput = {
+    id?: SortOrder
+    selectedCustomerId?: SortOrderInput | SortOrder
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    grandTotal?: SortOrder
+    validUntil?: SortOrderInput | SortOrder
+    status?: SortOrder
+    convertedToSaleId?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    warehousesId?: SortOrderInput | SortOrder
+    quotationNo?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
+    _count?: Quotation_onlineCountOrderByAggregateInput
+    _avg?: Quotation_onlineAvgOrderByAggregateInput
+    _max?: Quotation_onlineMaxOrderByAggregateInput
+    _min?: Quotation_onlineMinOrderByAggregateInput
+    _sum?: Quotation_onlineSumOrderByAggregateInput
+  }
+
+  export type Quotation_onlineScalarWhereWithAggregatesInput = {
+    AND?: Quotation_onlineScalarWhereWithAggregatesInput | Quotation_onlineScalarWhereWithAggregatesInput[]
+    OR?: Quotation_onlineScalarWhereWithAggregatesInput[]
+    NOT?: Quotation_onlineScalarWhereWithAggregatesInput | Quotation_onlineScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Quotation_online"> | string
+    selectedCustomerId?: StringNullableWithAggregatesFilter<"Quotation_online"> | string | null
+    taxRate?: FloatWithAggregatesFilter<"Quotation_online"> | number
+    subTotal?: FloatWithAggregatesFilter<"Quotation_online"> | number
+    notes?: StringNullableWithAggregatesFilter<"Quotation_online"> | string | null
+    grandTotal?: FloatWithAggregatesFilter<"Quotation_online"> | number
+    validUntil?: DateTimeNullableWithAggregatesFilter<"Quotation_online"> | Date | string | null
+    status?: StringWithAggregatesFilter<"Quotation_online"> | string
+    convertedToSaleId?: StringNullableWithAggregatesFilter<"Quotation_online"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Quotation_online"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Quotation_online"> | Date | string
+    warehousesId?: StringNullableWithAggregatesFilter<"Quotation_online"> | string | null
+    quotationNo?: StringWithAggregatesFilter<"Quotation_online"> | string
+    sync?: BoolWithAggregatesFilter<"Quotation_online"> | boolean
+    syncedAt?: DateTimeNullableWithAggregatesFilter<"Quotation_online"> | Date | string | null
+    isDeleted?: BoolWithAggregatesFilter<"Quotation_online"> | boolean
+  }
+
+  export type QuotationItem_onlineWhereInput = {
+    AND?: QuotationItem_onlineWhereInput | QuotationItem_onlineWhereInput[]
+    OR?: QuotationItem_onlineWhereInput[]
+    NOT?: QuotationItem_onlineWhereInput | QuotationItem_onlineWhereInput[]
+    id?: StringFilter<"QuotationItem_online"> | string
+    quotationId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productName?: StringFilter<"QuotationItem_online"> | string
+    cost?: FloatFilter<"QuotationItem_online"> | number
+    selectedPrice?: FloatFilter<"QuotationItem_online"> | number
+    priceType?: StringFilter<"QuotationItem_online"> | string
+    quantity?: IntFilter<"QuotationItem_online"> | number
+    discount?: FloatFilter<"QuotationItem_online"> | number
+    total?: FloatFilter<"QuotationItem_online"> | number
+    warehousesId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    sync?: BoolFilter<"QuotationItem_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"QuotationItem_online"> | Date | string | null
+    isDeleted?: BoolFilter<"QuotationItem_online"> | boolean
+    quotation?: XOR<Quotation_onlineNullableScalarRelationFilter, Quotation_onlineWhereInput> | null
+    product?: XOR<Product_onlineNullableScalarRelationFilter, Product_onlineWhereInput> | null
+    warehouses?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
+  }
+
+  export type QuotationItem_onlineOrderByWithRelationInput = {
+    id?: SortOrder
+    quotationId?: SortOrderInput | SortOrder
+    productId?: SortOrderInput | SortOrder
+    productName?: SortOrder
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    priceType?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+    warehousesId?: SortOrderInput | SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
+    quotation?: Quotation_onlineOrderByWithRelationInput
+    product?: Product_onlineOrderByWithRelationInput
+    warehouses?: Warehouses_onlineOrderByWithRelationInput
+  }
+
+  export type QuotationItem_onlineWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: QuotationItem_onlineWhereInput | QuotationItem_onlineWhereInput[]
+    OR?: QuotationItem_onlineWhereInput[]
+    NOT?: QuotationItem_onlineWhereInput | QuotationItem_onlineWhereInput[]
+    quotationId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productName?: StringFilter<"QuotationItem_online"> | string
+    cost?: FloatFilter<"QuotationItem_online"> | number
+    selectedPrice?: FloatFilter<"QuotationItem_online"> | number
+    priceType?: StringFilter<"QuotationItem_online"> | string
+    quantity?: IntFilter<"QuotationItem_online"> | number
+    discount?: FloatFilter<"QuotationItem_online"> | number
+    total?: FloatFilter<"QuotationItem_online"> | number
+    warehousesId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    sync?: BoolFilter<"QuotationItem_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"QuotationItem_online"> | Date | string | null
+    isDeleted?: BoolFilter<"QuotationItem_online"> | boolean
+    quotation?: XOR<Quotation_onlineNullableScalarRelationFilter, Quotation_onlineWhereInput> | null
+    product?: XOR<Product_onlineNullableScalarRelationFilter, Product_onlineWhereInput> | null
+    warehouses?: XOR<Warehouses_onlineNullableScalarRelationFilter, Warehouses_onlineWhereInput> | null
+  }, "id">
+
+  export type QuotationItem_onlineOrderByWithAggregationInput = {
+    id?: SortOrder
+    quotationId?: SortOrderInput | SortOrder
+    productId?: SortOrderInput | SortOrder
+    productName?: SortOrder
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    priceType?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+    warehousesId?: SortOrderInput | SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrderInput | SortOrder
+    isDeleted?: SortOrder
+    _count?: QuotationItem_onlineCountOrderByAggregateInput
+    _avg?: QuotationItem_onlineAvgOrderByAggregateInput
+    _max?: QuotationItem_onlineMaxOrderByAggregateInput
+    _min?: QuotationItem_onlineMinOrderByAggregateInput
+    _sum?: QuotationItem_onlineSumOrderByAggregateInput
+  }
+
+  export type QuotationItem_onlineScalarWhereWithAggregatesInput = {
+    AND?: QuotationItem_onlineScalarWhereWithAggregatesInput | QuotationItem_onlineScalarWhereWithAggregatesInput[]
+    OR?: QuotationItem_onlineScalarWhereWithAggregatesInput[]
+    NOT?: QuotationItem_onlineScalarWhereWithAggregatesInput | QuotationItem_onlineScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"QuotationItem_online"> | string
+    quotationId?: StringNullableWithAggregatesFilter<"QuotationItem_online"> | string | null
+    productId?: StringNullableWithAggregatesFilter<"QuotationItem_online"> | string | null
+    productName?: StringWithAggregatesFilter<"QuotationItem_online"> | string
+    cost?: FloatWithAggregatesFilter<"QuotationItem_online"> | number
+    selectedPrice?: FloatWithAggregatesFilter<"QuotationItem_online"> | number
+    priceType?: StringWithAggregatesFilter<"QuotationItem_online"> | string
+    quantity?: IntWithAggregatesFilter<"QuotationItem_online"> | number
+    discount?: FloatWithAggregatesFilter<"QuotationItem_online"> | number
+    total?: FloatWithAggregatesFilter<"QuotationItem_online"> | number
+    warehousesId?: StringNullableWithAggregatesFilter<"QuotationItem_online"> | string | null
+    sync?: BoolWithAggregatesFilter<"QuotationItem_online"> | boolean
+    syncedAt?: DateTimeNullableWithAggregatesFilter<"QuotationItem_online"> | Date | string | null
+    isDeleted?: BoolWithAggregatesFilter<"QuotationItem_online"> | boolean
+  }
+
   export type superAdmin_onlineCreateInput = {
     id?: string
     userName: string
@@ -23204,6 +26462,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateInput = {
@@ -23228,6 +26488,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUpdateInput = {
@@ -23252,6 +26514,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateInput = {
@@ -23276,6 +26540,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineCreateManyInput = {
@@ -23898,6 +27164,7 @@ export namespace Prisma {
     Sale?: Sale_onlineCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutCustomerInput
   }
 
@@ -23918,6 +27185,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineUpdateInput = {
@@ -23936,6 +27204,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutCustomerNestedInput
   }
 
@@ -23956,6 +27225,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Customer_onlineCreateManyInput = {
@@ -24138,6 +27408,7 @@ export namespace Prisma {
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineCreateNestedManyWithoutProduct_onlineInput
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutProductInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutProductsInput
   }
 
@@ -24160,6 +27431,7 @@ export namespace Prisma {
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type Product_onlineUpdateInput = {
@@ -24180,6 +27452,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUpdateManyWithoutProduct_onlineNestedInput
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutProductNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutProductsNestedInput
   }
 
@@ -24202,6 +27475,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type Product_onlineCreateManyInput = {
@@ -24814,6 +28088,257 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type Quotation_onlineCreateInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineCreateNestedManyWithoutQuotationInput
+    selectedCustomer?: Customer_onlineCreateNestedOneWithoutQuotationInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationInput
+  }
+
+  export type Quotation_onlineUncheckedCreateInput = {
+    id?: string
+    selectedCustomerId?: string | null
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    warehousesId?: string | null
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineUncheckedCreateNestedManyWithoutQuotationInput
+  }
+
+  export type Quotation_onlineUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUpdateManyWithoutQuotationNestedInput
+    selectedCustomer?: Customer_onlineUpdateOneWithoutQuotationNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    selectedCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUncheckedUpdateManyWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineCreateManyInput = {
+    id?: string
+    selectedCustomerId?: string | null
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    warehousesId?: string | null
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type Quotation_onlineUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Quotation_onlineUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    selectedCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineCreateInput = {
+    id?: string
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotation?: Quotation_onlineCreateNestedOneWithoutQuotationItemsInput
+    product?: Product_onlineCreateNestedOneWithoutQuotationItemInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationItemInput
+  }
+
+  export type QuotationItem_onlineUncheckedCreateInput = {
+    id?: string
+    quotationId?: string | null
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotation?: Quotation_onlineUpdateOneWithoutQuotationItemsNestedInput
+    product?: Product_onlineUpdateOneWithoutQuotationItemNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationItemNestedInput
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineCreateManyInput = {
+    id?: string
+    quotationId?: string | null
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type StringFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel>
     in?: string[] | ListStringFieldRefInput<$PrismaModel>
@@ -25242,6 +28767,18 @@ export namespace Prisma {
     none?: BalancePayment_onlineWhereInput
   }
 
+  export type Quotation_onlineListRelationFilter = {
+    every?: Quotation_onlineWhereInput
+    some?: Quotation_onlineWhereInput
+    none?: Quotation_onlineWhereInput
+  }
+
+  export type QuotationItem_onlineListRelationFilter = {
+    every?: QuotationItem_onlineWhereInput
+    some?: QuotationItem_onlineWhereInput
+    none?: QuotationItem_onlineWhereInput
+  }
+
   export type users_onlineOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
@@ -25283,6 +28820,14 @@ export namespace Prisma {
   }
 
   export type BalancePayment_onlineOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type Quotation_onlineOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type QuotationItem_onlineOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -26215,6 +29760,147 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
+  export type Quotation_onlineCountOrderByAggregateInput = {
+    id?: SortOrder
+    selectedCustomerId?: SortOrder
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    notes?: SortOrder
+    grandTotal?: SortOrder
+    validUntil?: SortOrder
+    status?: SortOrder
+    convertedToSaleId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    warehousesId?: SortOrder
+    quotationNo?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type Quotation_onlineAvgOrderByAggregateInput = {
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    grandTotal?: SortOrder
+  }
+
+  export type Quotation_onlineMaxOrderByAggregateInput = {
+    id?: SortOrder
+    selectedCustomerId?: SortOrder
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    notes?: SortOrder
+    grandTotal?: SortOrder
+    validUntil?: SortOrder
+    status?: SortOrder
+    convertedToSaleId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    warehousesId?: SortOrder
+    quotationNo?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type Quotation_onlineMinOrderByAggregateInput = {
+    id?: SortOrder
+    selectedCustomerId?: SortOrder
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    notes?: SortOrder
+    grandTotal?: SortOrder
+    validUntil?: SortOrder
+    status?: SortOrder
+    convertedToSaleId?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    warehousesId?: SortOrder
+    quotationNo?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type Quotation_onlineSumOrderByAggregateInput = {
+    taxRate?: SortOrder
+    subTotal?: SortOrder
+    grandTotal?: SortOrder
+  }
+
+  export type Quotation_onlineNullableScalarRelationFilter = {
+    is?: Quotation_onlineWhereInput | null
+    isNot?: Quotation_onlineWhereInput | null
+  }
+
+  export type QuotationItem_onlineCountOrderByAggregateInput = {
+    id?: SortOrder
+    quotationId?: SortOrder
+    productId?: SortOrder
+    productName?: SortOrder
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    priceType?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+    warehousesId?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type QuotationItem_onlineAvgOrderByAggregateInput = {
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+  }
+
+  export type QuotationItem_onlineMaxOrderByAggregateInput = {
+    id?: SortOrder
+    quotationId?: SortOrder
+    productId?: SortOrder
+    productName?: SortOrder
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    priceType?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+    warehousesId?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type QuotationItem_onlineMinOrderByAggregateInput = {
+    id?: SortOrder
+    quotationId?: SortOrder
+    productId?: SortOrder
+    productName?: SortOrder
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    priceType?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+    warehousesId?: SortOrder
+    sync?: SortOrder
+    syncedAt?: SortOrder
+    isDeleted?: SortOrder
+  }
+
+  export type QuotationItem_onlineSumOrderByAggregateInput = {
+    cost?: SortOrder
+    selectedPrice?: SortOrder
+    quantity?: SortOrder
+    discount?: SortOrder
+    total?: SortOrder
+  }
+
   export type StringFieldUpdateOperationsInput = {
     set?: string
   }
@@ -26344,6 +30030,20 @@ export namespace Prisma {
     connect?: BalancePayment_onlineWhereUniqueInput | BalancePayment_onlineWhereUniqueInput[]
   }
 
+  export type Quotation_onlineCreateNestedManyWithoutWarehousesInput = {
+    create?: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput> | Quotation_onlineCreateWithoutWarehousesInput[] | Quotation_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutWarehousesInput | Quotation_onlineCreateOrConnectWithoutWarehousesInput[]
+    createMany?: Quotation_onlineCreateManyWarehousesInputEnvelope
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+  }
+
+  export type QuotationItem_onlineCreateNestedManyWithoutWarehousesInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput> | QuotationItem_onlineCreateWithoutWarehousesInput[] | QuotationItem_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutWarehousesInput | QuotationItem_onlineCreateOrConnectWithoutWarehousesInput[]
+    createMany?: QuotationItem_onlineCreateManyWarehousesInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+  }
+
   export type users_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput = {
     create?: XOR<users_onlineCreateWithoutWarehouses_onlineInput, users_onlineUncheckedCreateWithoutWarehouses_onlineInput> | users_onlineCreateWithoutWarehouses_onlineInput[] | users_onlineUncheckedCreateWithoutWarehouses_onlineInput[]
     connectOrCreate?: users_onlineCreateOrConnectWithoutWarehouses_onlineInput | users_onlineCreateOrConnectWithoutWarehouses_onlineInput[]
@@ -26419,6 +30119,20 @@ export namespace Prisma {
     connectOrCreate?: BalancePayment_onlineCreateOrConnectWithoutWarehousesInput | BalancePayment_onlineCreateOrConnectWithoutWarehousesInput[]
     createMany?: BalancePayment_onlineCreateManyWarehousesInputEnvelope
     connect?: BalancePayment_onlineWhereUniqueInput | BalancePayment_onlineWhereUniqueInput[]
+  }
+
+  export type Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput = {
+    create?: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput> | Quotation_onlineCreateWithoutWarehousesInput[] | Quotation_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutWarehousesInput | Quotation_onlineCreateOrConnectWithoutWarehousesInput[]
+    createMany?: Quotation_onlineCreateManyWarehousesInputEnvelope
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+  }
+
+  export type QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput> | QuotationItem_onlineCreateWithoutWarehousesInput[] | QuotationItem_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutWarehousesInput | QuotationItem_onlineCreateOrConnectWithoutWarehousesInput[]
+    createMany?: QuotationItem_onlineCreateManyWarehousesInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
   }
 
   export type users_onlineUpdateManyWithoutWarehouses_onlineNestedInput = {
@@ -26575,6 +30289,34 @@ export namespace Prisma {
     deleteMany?: BalancePayment_onlineScalarWhereInput | BalancePayment_onlineScalarWhereInput[]
   }
 
+  export type Quotation_onlineUpdateManyWithoutWarehousesNestedInput = {
+    create?: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput> | Quotation_onlineCreateWithoutWarehousesInput[] | Quotation_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutWarehousesInput | Quotation_onlineCreateOrConnectWithoutWarehousesInput[]
+    upsert?: Quotation_onlineUpsertWithWhereUniqueWithoutWarehousesInput | Quotation_onlineUpsertWithWhereUniqueWithoutWarehousesInput[]
+    createMany?: Quotation_onlineCreateManyWarehousesInputEnvelope
+    set?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    disconnect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    delete?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    update?: Quotation_onlineUpdateWithWhereUniqueWithoutWarehousesInput | Quotation_onlineUpdateWithWhereUniqueWithoutWarehousesInput[]
+    updateMany?: Quotation_onlineUpdateManyWithWhereWithoutWarehousesInput | Quotation_onlineUpdateManyWithWhereWithoutWarehousesInput[]
+    deleteMany?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
+  }
+
+  export type QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput> | QuotationItem_onlineCreateWithoutWarehousesInput[] | QuotationItem_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutWarehousesInput | QuotationItem_onlineCreateOrConnectWithoutWarehousesInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutWarehousesInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutWarehousesInput[]
+    createMany?: QuotationItem_onlineCreateManyWarehousesInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutWarehousesInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutWarehousesInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutWarehousesInput | QuotationItem_onlineUpdateManyWithWhereWithoutWarehousesInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
+  }
+
   export type users_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput = {
     create?: XOR<users_onlineCreateWithoutWarehouses_onlineInput, users_onlineUncheckedCreateWithoutWarehouses_onlineInput> | users_onlineCreateWithoutWarehouses_onlineInput[] | users_onlineUncheckedCreateWithoutWarehouses_onlineInput[]
     connectOrCreate?: users_onlineCreateOrConnectWithoutWarehouses_onlineInput | users_onlineCreateOrConnectWithoutWarehouses_onlineInput[]
@@ -26727,6 +30469,34 @@ export namespace Prisma {
     update?: BalancePayment_onlineUpdateWithWhereUniqueWithoutWarehousesInput | BalancePayment_onlineUpdateWithWhereUniqueWithoutWarehousesInput[]
     updateMany?: BalancePayment_onlineUpdateManyWithWhereWithoutWarehousesInput | BalancePayment_onlineUpdateManyWithWhereWithoutWarehousesInput[]
     deleteMany?: BalancePayment_onlineScalarWhereInput | BalancePayment_onlineScalarWhereInput[]
+  }
+
+  export type Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput = {
+    create?: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput> | Quotation_onlineCreateWithoutWarehousesInput[] | Quotation_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutWarehousesInput | Quotation_onlineCreateOrConnectWithoutWarehousesInput[]
+    upsert?: Quotation_onlineUpsertWithWhereUniqueWithoutWarehousesInput | Quotation_onlineUpsertWithWhereUniqueWithoutWarehousesInput[]
+    createMany?: Quotation_onlineCreateManyWarehousesInputEnvelope
+    set?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    disconnect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    delete?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    update?: Quotation_onlineUpdateWithWhereUniqueWithoutWarehousesInput | Quotation_onlineUpdateWithWhereUniqueWithoutWarehousesInput[]
+    updateMany?: Quotation_onlineUpdateManyWithWhereWithoutWarehousesInput | Quotation_onlineUpdateManyWithWhereWithoutWarehousesInput[]
+    deleteMany?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput> | QuotationItem_onlineCreateWithoutWarehousesInput[] | QuotationItem_onlineUncheckedCreateWithoutWarehousesInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutWarehousesInput | QuotationItem_onlineCreateOrConnectWithoutWarehousesInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutWarehousesInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutWarehousesInput[]
+    createMany?: QuotationItem_onlineCreateManyWarehousesInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutWarehousesInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutWarehousesInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutWarehousesInput | QuotationItem_onlineUpdateManyWithWhereWithoutWarehousesInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
   }
 
   export type SaleItem_onlineCreateNestedManyWithoutSale_onlineInput = {
@@ -27110,6 +30880,13 @@ export namespace Prisma {
     connect?: BalancePayment_onlineWhereUniqueInput | BalancePayment_onlineWhereUniqueInput[]
   }
 
+  export type Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput = {
+    create?: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput> | Quotation_onlineCreateWithoutSelectedCustomerInput[] | Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput | Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput[]
+    createMany?: Quotation_onlineCreateManySelectedCustomerInputEnvelope
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+  }
+
   export type Warehouses_onlineCreateNestedOneWithoutCustomerInput = {
     create?: XOR<Warehouses_onlineCreateWithoutCustomerInput, Warehouses_onlineUncheckedCreateWithoutCustomerInput>
     connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutCustomerInput
@@ -27135,6 +30912,13 @@ export namespace Prisma {
     connectOrCreate?: BalancePayment_onlineCreateOrConnectWithoutCustomerInput | BalancePayment_onlineCreateOrConnectWithoutCustomerInput[]
     createMany?: BalancePayment_onlineCreateManyCustomerInputEnvelope
     connect?: BalancePayment_onlineWhereUniqueInput | BalancePayment_onlineWhereUniqueInput[]
+  }
+
+  export type Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput = {
+    create?: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput> | Quotation_onlineCreateWithoutSelectedCustomerInput[] | Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput | Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput[]
+    createMany?: Quotation_onlineCreateManySelectedCustomerInputEnvelope
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
   }
 
   export type Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput = {
@@ -27177,6 +30961,20 @@ export namespace Prisma {
     update?: BalancePayment_onlineUpdateWithWhereUniqueWithoutCustomerInput | BalancePayment_onlineUpdateWithWhereUniqueWithoutCustomerInput[]
     updateMany?: BalancePayment_onlineUpdateManyWithWhereWithoutCustomerInput | BalancePayment_onlineUpdateManyWithWhereWithoutCustomerInput[]
     deleteMany?: BalancePayment_onlineScalarWhereInput | BalancePayment_onlineScalarWhereInput[]
+  }
+
+  export type Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput = {
+    create?: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput> | Quotation_onlineCreateWithoutSelectedCustomerInput[] | Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput | Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput[]
+    upsert?: Quotation_onlineUpsertWithWhereUniqueWithoutSelectedCustomerInput | Quotation_onlineUpsertWithWhereUniqueWithoutSelectedCustomerInput[]
+    createMany?: Quotation_onlineCreateManySelectedCustomerInputEnvelope
+    set?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    disconnect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    delete?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    update?: Quotation_onlineUpdateWithWhereUniqueWithoutSelectedCustomerInput | Quotation_onlineUpdateWithWhereUniqueWithoutSelectedCustomerInput[]
+    updateMany?: Quotation_onlineUpdateManyWithWhereWithoutSelectedCustomerInput | Quotation_onlineUpdateManyWithWhereWithoutSelectedCustomerInput[]
+    deleteMany?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
   }
 
   export type Warehouses_onlineUpdateOneWithoutCustomerNestedInput = {
@@ -27229,6 +31027,20 @@ export namespace Prisma {
     update?: BalancePayment_onlineUpdateWithWhereUniqueWithoutCustomerInput | BalancePayment_onlineUpdateWithWhereUniqueWithoutCustomerInput[]
     updateMany?: BalancePayment_onlineUpdateManyWithWhereWithoutCustomerInput | BalancePayment_onlineUpdateManyWithWhereWithoutCustomerInput[]
     deleteMany?: BalancePayment_onlineScalarWhereInput | BalancePayment_onlineScalarWhereInput[]
+  }
+
+  export type Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput = {
+    create?: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput> | Quotation_onlineCreateWithoutSelectedCustomerInput[] | Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput[]
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput | Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput[]
+    upsert?: Quotation_onlineUpsertWithWhereUniqueWithoutSelectedCustomerInput | Quotation_onlineUpsertWithWhereUniqueWithoutSelectedCustomerInput[]
+    createMany?: Quotation_onlineCreateManySelectedCustomerInputEnvelope
+    set?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    disconnect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    delete?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    connect?: Quotation_onlineWhereUniqueInput | Quotation_onlineWhereUniqueInput[]
+    update?: Quotation_onlineUpdateWithWhereUniqueWithoutSelectedCustomerInput | Quotation_onlineUpdateWithWhereUniqueWithoutSelectedCustomerInput[]
+    updateMany?: Quotation_onlineUpdateManyWithWhereWithoutSelectedCustomerInput | Quotation_onlineUpdateManyWithWhereWithoutSelectedCustomerInput[]
+    deleteMany?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
   }
 
   export type Purchase_onlineCreateNestedManyWithoutSupplier_onlineInput = {
@@ -27303,6 +31115,13 @@ export namespace Prisma {
     connect?: PurchaseItem_onlineWhereUniqueInput | PurchaseItem_onlineWhereUniqueInput[]
   }
 
+  export type QuotationItem_onlineCreateNestedManyWithoutProductInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput> | QuotationItem_onlineCreateWithoutProductInput[] | QuotationItem_onlineUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutProductInput | QuotationItem_onlineCreateOrConnectWithoutProductInput[]
+    createMany?: QuotationItem_onlineCreateManyProductInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+  }
+
   export type Warehouses_onlineCreateNestedOneWithoutProductsInput = {
     create?: XOR<Warehouses_onlineCreateWithoutProductsInput, Warehouses_onlineUncheckedCreateWithoutProductsInput>
     connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutProductsInput
@@ -27321,6 +31140,13 @@ export namespace Prisma {
     connectOrCreate?: PurchaseItem_onlineCreateOrConnectWithoutProduct_onlineInput | PurchaseItem_onlineCreateOrConnectWithoutProduct_onlineInput[]
     createMany?: PurchaseItem_onlineCreateManyProduct_onlineInputEnvelope
     connect?: PurchaseItem_onlineWhereUniqueInput | PurchaseItem_onlineWhereUniqueInput[]
+  }
+
+  export type QuotationItem_onlineUncheckedCreateNestedManyWithoutProductInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput> | QuotationItem_onlineCreateWithoutProductInput[] | QuotationItem_onlineUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutProductInput | QuotationItem_onlineCreateOrConnectWithoutProductInput[]
+    createMany?: QuotationItem_onlineCreateManyProductInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
   }
 
   export type Enumunit_onlineFieldUpdateOperationsInput = {
@@ -27353,6 +31179,20 @@ export namespace Prisma {
     update?: PurchaseItem_onlineUpdateWithWhereUniqueWithoutProduct_onlineInput | PurchaseItem_onlineUpdateWithWhereUniqueWithoutProduct_onlineInput[]
     updateMany?: PurchaseItem_onlineUpdateManyWithWhereWithoutProduct_onlineInput | PurchaseItem_onlineUpdateManyWithWhereWithoutProduct_onlineInput[]
     deleteMany?: PurchaseItem_onlineScalarWhereInput | PurchaseItem_onlineScalarWhereInput[]
+  }
+
+  export type QuotationItem_onlineUpdateManyWithoutProductNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput> | QuotationItem_onlineCreateWithoutProductInput[] | QuotationItem_onlineUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutProductInput | QuotationItem_onlineCreateOrConnectWithoutProductInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutProductInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: QuotationItem_onlineCreateManyProductInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutProductInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutProductInput | QuotationItem_onlineUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
   }
 
   export type Warehouses_onlineUpdateOneWithoutProductsNestedInput = {
@@ -27391,6 +31231,20 @@ export namespace Prisma {
     update?: PurchaseItem_onlineUpdateWithWhereUniqueWithoutProduct_onlineInput | PurchaseItem_onlineUpdateWithWhereUniqueWithoutProduct_onlineInput[]
     updateMany?: PurchaseItem_onlineUpdateManyWithWhereWithoutProduct_onlineInput | PurchaseItem_onlineUpdateManyWithWhereWithoutProduct_onlineInput[]
     deleteMany?: PurchaseItem_onlineScalarWhereInput | PurchaseItem_onlineScalarWhereInput[]
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutProductNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput> | QuotationItem_onlineCreateWithoutProductInput[] | QuotationItem_onlineUncheckedCreateWithoutProductInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutProductInput | QuotationItem_onlineCreateOrConnectWithoutProductInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutProductInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutProductInput[]
+    createMany?: QuotationItem_onlineCreateManyProductInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutProductInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutProductInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutProductInput | QuotationItem_onlineUpdateManyWithWhereWithoutProductInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
   }
 
   export type Warehouses_onlineCreateNestedOneWithoutPaymentMethodInput = {
@@ -27497,6 +31351,128 @@ export namespace Prisma {
     delete?: Warehouses_onlineWhereInput | boolean
     connect?: Warehouses_onlineWhereUniqueInput
     update?: XOR<XOR<Warehouses_onlineUpdateToOneWithWhereWithoutBalancePaymentInput, Warehouses_onlineUpdateWithoutBalancePaymentInput>, Warehouses_onlineUncheckedUpdateWithoutBalancePaymentInput>
+  }
+
+  export type QuotationItem_onlineCreateNestedManyWithoutQuotationInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput> | QuotationItem_onlineCreateWithoutQuotationInput[] | QuotationItem_onlineUncheckedCreateWithoutQuotationInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutQuotationInput | QuotationItem_onlineCreateOrConnectWithoutQuotationInput[]
+    createMany?: QuotationItem_onlineCreateManyQuotationInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+  }
+
+  export type Customer_onlineCreateNestedOneWithoutQuotationInput = {
+    create?: XOR<Customer_onlineCreateWithoutQuotationInput, Customer_onlineUncheckedCreateWithoutQuotationInput>
+    connectOrCreate?: Customer_onlineCreateOrConnectWithoutQuotationInput
+    connect?: Customer_onlineWhereUniqueInput
+  }
+
+  export type Warehouses_onlineCreateNestedOneWithoutQuotationInput = {
+    create?: XOR<Warehouses_onlineCreateWithoutQuotationInput, Warehouses_onlineUncheckedCreateWithoutQuotationInput>
+    connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutQuotationInput
+    connect?: Warehouses_onlineWhereUniqueInput
+  }
+
+  export type QuotationItem_onlineUncheckedCreateNestedManyWithoutQuotationInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput> | QuotationItem_onlineCreateWithoutQuotationInput[] | QuotationItem_onlineUncheckedCreateWithoutQuotationInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutQuotationInput | QuotationItem_onlineCreateOrConnectWithoutQuotationInput[]
+    createMany?: QuotationItem_onlineCreateManyQuotationInputEnvelope
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+  }
+
+  export type QuotationItem_onlineUpdateManyWithoutQuotationNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput> | QuotationItem_onlineCreateWithoutQuotationInput[] | QuotationItem_onlineUncheckedCreateWithoutQuotationInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutQuotationInput | QuotationItem_onlineCreateOrConnectWithoutQuotationInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutQuotationInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutQuotationInput[]
+    createMany?: QuotationItem_onlineCreateManyQuotationInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutQuotationInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutQuotationInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutQuotationInput | QuotationItem_onlineUpdateManyWithWhereWithoutQuotationInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
+  }
+
+  export type Customer_onlineUpdateOneWithoutQuotationNestedInput = {
+    create?: XOR<Customer_onlineCreateWithoutQuotationInput, Customer_onlineUncheckedCreateWithoutQuotationInput>
+    connectOrCreate?: Customer_onlineCreateOrConnectWithoutQuotationInput
+    upsert?: Customer_onlineUpsertWithoutQuotationInput
+    disconnect?: Customer_onlineWhereInput | boolean
+    delete?: Customer_onlineWhereInput | boolean
+    connect?: Customer_onlineWhereUniqueInput
+    update?: XOR<XOR<Customer_onlineUpdateToOneWithWhereWithoutQuotationInput, Customer_onlineUpdateWithoutQuotationInput>, Customer_onlineUncheckedUpdateWithoutQuotationInput>
+  }
+
+  export type Warehouses_onlineUpdateOneWithoutQuotationNestedInput = {
+    create?: XOR<Warehouses_onlineCreateWithoutQuotationInput, Warehouses_onlineUncheckedCreateWithoutQuotationInput>
+    connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutQuotationInput
+    upsert?: Warehouses_onlineUpsertWithoutQuotationInput
+    disconnect?: Warehouses_onlineWhereInput | boolean
+    delete?: Warehouses_onlineWhereInput | boolean
+    connect?: Warehouses_onlineWhereUniqueInput
+    update?: XOR<XOR<Warehouses_onlineUpdateToOneWithWhereWithoutQuotationInput, Warehouses_onlineUpdateWithoutQuotationInput>, Warehouses_onlineUncheckedUpdateWithoutQuotationInput>
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutQuotationNestedInput = {
+    create?: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput> | QuotationItem_onlineCreateWithoutQuotationInput[] | QuotationItem_onlineUncheckedCreateWithoutQuotationInput[]
+    connectOrCreate?: QuotationItem_onlineCreateOrConnectWithoutQuotationInput | QuotationItem_onlineCreateOrConnectWithoutQuotationInput[]
+    upsert?: QuotationItem_onlineUpsertWithWhereUniqueWithoutQuotationInput | QuotationItem_onlineUpsertWithWhereUniqueWithoutQuotationInput[]
+    createMany?: QuotationItem_onlineCreateManyQuotationInputEnvelope
+    set?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    disconnect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    delete?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    connect?: QuotationItem_onlineWhereUniqueInput | QuotationItem_onlineWhereUniqueInput[]
+    update?: QuotationItem_onlineUpdateWithWhereUniqueWithoutQuotationInput | QuotationItem_onlineUpdateWithWhereUniqueWithoutQuotationInput[]
+    updateMany?: QuotationItem_onlineUpdateManyWithWhereWithoutQuotationInput | QuotationItem_onlineUpdateManyWithWhereWithoutQuotationInput[]
+    deleteMany?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
+  }
+
+  export type Quotation_onlineCreateNestedOneWithoutQuotationItemsInput = {
+    create?: XOR<Quotation_onlineCreateWithoutQuotationItemsInput, Quotation_onlineUncheckedCreateWithoutQuotationItemsInput>
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutQuotationItemsInput
+    connect?: Quotation_onlineWhereUniqueInput
+  }
+
+  export type Product_onlineCreateNestedOneWithoutQuotationItemInput = {
+    create?: XOR<Product_onlineCreateWithoutQuotationItemInput, Product_onlineUncheckedCreateWithoutQuotationItemInput>
+    connectOrCreate?: Product_onlineCreateOrConnectWithoutQuotationItemInput
+    connect?: Product_onlineWhereUniqueInput
+  }
+
+  export type Warehouses_onlineCreateNestedOneWithoutQuotationItemInput = {
+    create?: XOR<Warehouses_onlineCreateWithoutQuotationItemInput, Warehouses_onlineUncheckedCreateWithoutQuotationItemInput>
+    connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutQuotationItemInput
+    connect?: Warehouses_onlineWhereUniqueInput
+  }
+
+  export type Quotation_onlineUpdateOneWithoutQuotationItemsNestedInput = {
+    create?: XOR<Quotation_onlineCreateWithoutQuotationItemsInput, Quotation_onlineUncheckedCreateWithoutQuotationItemsInput>
+    connectOrCreate?: Quotation_onlineCreateOrConnectWithoutQuotationItemsInput
+    upsert?: Quotation_onlineUpsertWithoutQuotationItemsInput
+    disconnect?: Quotation_onlineWhereInput | boolean
+    delete?: Quotation_onlineWhereInput | boolean
+    connect?: Quotation_onlineWhereUniqueInput
+    update?: XOR<XOR<Quotation_onlineUpdateToOneWithWhereWithoutQuotationItemsInput, Quotation_onlineUpdateWithoutQuotationItemsInput>, Quotation_onlineUncheckedUpdateWithoutQuotationItemsInput>
+  }
+
+  export type Product_onlineUpdateOneWithoutQuotationItemNestedInput = {
+    create?: XOR<Product_onlineCreateWithoutQuotationItemInput, Product_onlineUncheckedCreateWithoutQuotationItemInput>
+    connectOrCreate?: Product_onlineCreateOrConnectWithoutQuotationItemInput
+    upsert?: Product_onlineUpsertWithoutQuotationItemInput
+    disconnect?: Product_onlineWhereInput | boolean
+    delete?: Product_onlineWhereInput | boolean
+    connect?: Product_onlineWhereUniqueInput
+    update?: XOR<XOR<Product_onlineUpdateToOneWithWhereWithoutQuotationItemInput, Product_onlineUpdateWithoutQuotationItemInput>, Product_onlineUncheckedUpdateWithoutQuotationItemInput>
+  }
+
+  export type Warehouses_onlineUpdateOneWithoutQuotationItemNestedInput = {
+    create?: XOR<Warehouses_onlineCreateWithoutQuotationItemInput, Warehouses_onlineUncheckedCreateWithoutQuotationItemInput>
+    connectOrCreate?: Warehouses_onlineCreateOrConnectWithoutQuotationItemInput
+    upsert?: Warehouses_onlineUpsertWithoutQuotationItemInput
+    disconnect?: Warehouses_onlineWhereInput | boolean
+    delete?: Warehouses_onlineWhereInput | boolean
+    connect?: Warehouses_onlineWhereUniqueInput
+    update?: XOR<XOR<Warehouses_onlineUpdateToOneWithWhereWithoutQuotationItemInput, Warehouses_onlineUpdateWithoutQuotationItemInput>, Warehouses_onlineUncheckedUpdateWithoutQuotationItemInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -27817,6 +31793,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutUsersInput = {
@@ -27840,6 +31818,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutUsersInput = {
@@ -27879,6 +31859,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutUsersInput = {
@@ -27902,6 +31884,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type users_onlineCreateWithoutWarehouses_onlineInput = {
@@ -27962,6 +31946,7 @@ export namespace Prisma {
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineCreateNestedManyWithoutProduct_onlineInput
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutProductInput
   }
 
   export type Product_onlineUncheckedCreateWithoutWarehouses_onlineInput = {
@@ -27982,6 +31967,7 @@ export namespace Prisma {
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type Product_onlineCreateOrConnectWithoutWarehouses_onlineInput = {
@@ -28010,6 +31996,7 @@ export namespace Prisma {
     Sale?: Sale_onlineCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineUncheckedCreateWithoutWarehouses_onlineInput = {
@@ -28028,6 +32015,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineCreateOrConnectWithoutWarehouses_onlineInput = {
@@ -28463,6 +32451,96 @@ export namespace Prisma {
 
   export type BalancePayment_onlineCreateManyWarehousesInputEnvelope = {
     data: BalancePayment_onlineCreateManyWarehousesInput | BalancePayment_onlineCreateManyWarehousesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Quotation_onlineCreateWithoutWarehousesInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineCreateNestedManyWithoutQuotationInput
+    selectedCustomer?: Customer_onlineCreateNestedOneWithoutQuotationInput
+  }
+
+  export type Quotation_onlineUncheckedCreateWithoutWarehousesInput = {
+    id?: string
+    selectedCustomerId?: string | null
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineUncheckedCreateNestedManyWithoutQuotationInput
+  }
+
+  export type Quotation_onlineCreateOrConnectWithoutWarehousesInput = {
+    where: Quotation_onlineWhereUniqueInput
+    create: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput>
+  }
+
+  export type Quotation_onlineCreateManyWarehousesInputEnvelope = {
+    data: Quotation_onlineCreateManyWarehousesInput | Quotation_onlineCreateManyWarehousesInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type QuotationItem_onlineCreateWithoutWarehousesInput = {
+    id?: string
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotation?: Quotation_onlineCreateNestedOneWithoutQuotationItemsInput
+    product?: Product_onlineCreateNestedOneWithoutQuotationItemInput
+  }
+
+  export type QuotationItem_onlineUncheckedCreateWithoutWarehousesInput = {
+    id?: string
+    quotationId?: string | null
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineCreateOrConnectWithoutWarehousesInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    create: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput>
+  }
+
+  export type QuotationItem_onlineCreateManyWarehousesInputEnvelope = {
+    data: QuotationItem_onlineCreateManyWarehousesInput | QuotationItem_onlineCreateManyWarehousesInput[]
     skipDuplicates?: boolean
   }
 
@@ -28902,6 +32980,80 @@ export namespace Prisma {
     isDeleted?: BoolFilter<"BalancePayment_online"> | boolean
   }
 
+  export type Quotation_onlineUpsertWithWhereUniqueWithoutWarehousesInput = {
+    where: Quotation_onlineWhereUniqueInput
+    update: XOR<Quotation_onlineUpdateWithoutWarehousesInput, Quotation_onlineUncheckedUpdateWithoutWarehousesInput>
+    create: XOR<Quotation_onlineCreateWithoutWarehousesInput, Quotation_onlineUncheckedCreateWithoutWarehousesInput>
+  }
+
+  export type Quotation_onlineUpdateWithWhereUniqueWithoutWarehousesInput = {
+    where: Quotation_onlineWhereUniqueInput
+    data: XOR<Quotation_onlineUpdateWithoutWarehousesInput, Quotation_onlineUncheckedUpdateWithoutWarehousesInput>
+  }
+
+  export type Quotation_onlineUpdateManyWithWhereWithoutWarehousesInput = {
+    where: Quotation_onlineScalarWhereInput
+    data: XOR<Quotation_onlineUpdateManyMutationInput, Quotation_onlineUncheckedUpdateManyWithoutWarehousesInput>
+  }
+
+  export type Quotation_onlineScalarWhereInput = {
+    AND?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
+    OR?: Quotation_onlineScalarWhereInput[]
+    NOT?: Quotation_onlineScalarWhereInput | Quotation_onlineScalarWhereInput[]
+    id?: StringFilter<"Quotation_online"> | string
+    selectedCustomerId?: StringNullableFilter<"Quotation_online"> | string | null
+    taxRate?: FloatFilter<"Quotation_online"> | number
+    subTotal?: FloatFilter<"Quotation_online"> | number
+    notes?: StringNullableFilter<"Quotation_online"> | string | null
+    grandTotal?: FloatFilter<"Quotation_online"> | number
+    validUntil?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    status?: StringFilter<"Quotation_online"> | string
+    convertedToSaleId?: StringNullableFilter<"Quotation_online"> | string | null
+    createdAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    updatedAt?: DateTimeFilter<"Quotation_online"> | Date | string
+    warehousesId?: StringNullableFilter<"Quotation_online"> | string | null
+    quotationNo?: StringFilter<"Quotation_online"> | string
+    sync?: BoolFilter<"Quotation_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"Quotation_online"> | Date | string | null
+    isDeleted?: BoolFilter<"Quotation_online"> | boolean
+  }
+
+  export type QuotationItem_onlineUpsertWithWhereUniqueWithoutWarehousesInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    update: XOR<QuotationItem_onlineUpdateWithoutWarehousesInput, QuotationItem_onlineUncheckedUpdateWithoutWarehousesInput>
+    create: XOR<QuotationItem_onlineCreateWithoutWarehousesInput, QuotationItem_onlineUncheckedCreateWithoutWarehousesInput>
+  }
+
+  export type QuotationItem_onlineUpdateWithWhereUniqueWithoutWarehousesInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    data: XOR<QuotationItem_onlineUpdateWithoutWarehousesInput, QuotationItem_onlineUncheckedUpdateWithoutWarehousesInput>
+  }
+
+  export type QuotationItem_onlineUpdateManyWithWhereWithoutWarehousesInput = {
+    where: QuotationItem_onlineScalarWhereInput
+    data: XOR<QuotationItem_onlineUpdateManyMutationInput, QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesInput>
+  }
+
+  export type QuotationItem_onlineScalarWhereInput = {
+    AND?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
+    OR?: QuotationItem_onlineScalarWhereInput[]
+    NOT?: QuotationItem_onlineScalarWhereInput | QuotationItem_onlineScalarWhereInput[]
+    id?: StringFilter<"QuotationItem_online"> | string
+    quotationId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    productName?: StringFilter<"QuotationItem_online"> | string
+    cost?: FloatFilter<"QuotationItem_online"> | number
+    selectedPrice?: FloatFilter<"QuotationItem_online"> | number
+    priceType?: StringFilter<"QuotationItem_online"> | string
+    quantity?: IntFilter<"QuotationItem_online"> | number
+    discount?: FloatFilter<"QuotationItem_online"> | number
+    total?: FloatFilter<"QuotationItem_online"> | number
+    warehousesId?: StringNullableFilter<"QuotationItem_online"> | string | null
+    sync?: BoolFilter<"QuotationItem_online"> | boolean
+    syncedAt?: DateTimeNullableFilter<"QuotationItem_online"> | Date | string | null
+    isDeleted?: BoolFilter<"QuotationItem_online"> | boolean
+  }
+
   export type SaleItem_onlineCreateWithoutSale_onlineInput = {
     id?: string
     productName: string
@@ -29043,6 +33195,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutSaleInput = {
@@ -29066,6 +33220,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutSaleInput = {
@@ -29088,6 +33244,7 @@ export namespace Prisma {
     isDeleted?: boolean
     saleItem?: SaleItem_onlineCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutCustomerInput
   }
 
@@ -29107,6 +33264,7 @@ export namespace Prisma {
     isDeleted?: boolean
     saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineCreateOrConnectWithoutSaleInput = {
@@ -29194,6 +33352,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutSaleInput = {
@@ -29217,6 +33377,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Customer_onlineUpsertWithoutSaleInput = {
@@ -29245,6 +33407,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     saleItem?: SaleItem_onlineUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutCustomerNestedInput
   }
 
@@ -29264,6 +33427,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Warehouses_onlineCreateWithoutSaleItemInput = {
@@ -29287,6 +33451,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutSaleItemInput = {
@@ -29310,6 +33476,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutSaleItemInput = {
@@ -29379,6 +33547,7 @@ export namespace Prisma {
     isDeleted?: boolean
     Sale?: Sale_onlineCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutCustomerInput
   }
 
@@ -29398,6 +33567,7 @@ export namespace Prisma {
     isDeleted?: boolean
     Sale?: Sale_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutCustomerInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineCreateOrConnectWithoutSaleItemInput = {
@@ -29422,6 +33592,7 @@ export namespace Prisma {
     syncedAt?: Date | string | null
     isDeleted?: boolean
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutProductInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutProductsInput
   }
 
@@ -29443,6 +33614,7 @@ export namespace Prisma {
     warehouses_onlineId?: string | null
     isDeleted?: boolean
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type Product_onlineCreateOrConnectWithoutSaleItemInput = {
@@ -29482,6 +33654,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutSaleItemInput = {
@@ -29505,6 +33679,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Sale_onlineUpsertWithoutSaleItemsInput = {
@@ -29586,6 +33762,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     Sale?: Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutCustomerNestedInput
   }
 
@@ -29605,6 +33782,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     Sale?: Sale_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Product_onlineUpsertWithoutSaleItemInput = {
@@ -29635,6 +33813,7 @@ export namespace Prisma {
     syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutProductNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutProductsNestedInput
   }
 
@@ -29656,6 +33835,7 @@ export namespace Prisma {
     warehouses_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type PurchaseItem_onlineCreateWithoutPurchase_onlineInput = {
@@ -29733,6 +33913,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutPurchaseInput = {
@@ -29756,6 +33938,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutPurchaseInput = {
@@ -29848,6 +34032,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutPurchaseInput = {
@@ -29871,6 +34057,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Supplier_onlineUpsertWithoutPurchaseInput = {
@@ -29937,6 +34125,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutPurchaseItemInput = {
@@ -29960,6 +34150,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutPurchaseItemInput = {
@@ -30027,6 +34219,7 @@ export namespace Prisma {
     syncedAt?: Date | string | null
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutProductInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutProductsInput
   }
 
@@ -30048,6 +34241,7 @@ export namespace Prisma {
     warehouses_onlineId?: string | null
     isDeleted?: boolean
     SaleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutProductInput
   }
 
   export type Product_onlineCreateOrConnectWithoutPurchaseItemInput = {
@@ -30087,6 +34281,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutPurchaseItemInput = {
@@ -30110,6 +34306,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Purchase_onlineUpsertWithoutPurchaseItemInput = {
@@ -30189,6 +34387,7 @@ export namespace Prisma {
     syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutProductNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutProductsNestedInput
   }
 
@@ -30210,6 +34409,7 @@ export namespace Prisma {
     warehouses_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type Sale_onlineCreateWithoutCustomer_onlineInput = {
@@ -30350,6 +34550,54 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type Quotation_onlineCreateWithoutSelectedCustomerInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineCreateNestedManyWithoutQuotationInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationInput
+  }
+
+  export type Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    warehousesId?: string | null
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotationItems?: QuotationItem_onlineUncheckedCreateNestedManyWithoutQuotationInput
+  }
+
+  export type Quotation_onlineCreateOrConnectWithoutSelectedCustomerInput = {
+    where: Quotation_onlineWhereUniqueInput
+    create: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput>
+  }
+
+  export type Quotation_onlineCreateManySelectedCustomerInputEnvelope = {
+    data: Quotation_onlineCreateManySelectedCustomerInput | Quotation_onlineCreateManySelectedCustomerInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Warehouses_onlineCreateWithoutCustomerInput = {
     id?: string
     warehouseCode: string
@@ -30371,6 +34619,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutCustomerInput = {
@@ -30394,6 +34644,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutCustomerInput = {
@@ -30449,6 +34701,22 @@ export namespace Prisma {
     data: XOR<BalancePayment_onlineUpdateManyMutationInput, BalancePayment_onlineUncheckedUpdateManyWithoutCustomerInput>
   }
 
+  export type Quotation_onlineUpsertWithWhereUniqueWithoutSelectedCustomerInput = {
+    where: Quotation_onlineWhereUniqueInput
+    update: XOR<Quotation_onlineUpdateWithoutSelectedCustomerInput, Quotation_onlineUncheckedUpdateWithoutSelectedCustomerInput>
+    create: XOR<Quotation_onlineCreateWithoutSelectedCustomerInput, Quotation_onlineUncheckedCreateWithoutSelectedCustomerInput>
+  }
+
+  export type Quotation_onlineUpdateWithWhereUniqueWithoutSelectedCustomerInput = {
+    where: Quotation_onlineWhereUniqueInput
+    data: XOR<Quotation_onlineUpdateWithoutSelectedCustomerInput, Quotation_onlineUncheckedUpdateWithoutSelectedCustomerInput>
+  }
+
+  export type Quotation_onlineUpdateManyWithWhereWithoutSelectedCustomerInput = {
+    where: Quotation_onlineScalarWhereInput
+    data: XOR<Quotation_onlineUpdateManyMutationInput, Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerInput>
+  }
+
   export type Warehouses_onlineUpsertWithoutCustomerInput = {
     update: XOR<Warehouses_onlineUpdateWithoutCustomerInput, Warehouses_onlineUncheckedUpdateWithoutCustomerInput>
     create: XOR<Warehouses_onlineCreateWithoutCustomerInput, Warehouses_onlineUncheckedCreateWithoutCustomerInput>
@@ -30481,6 +34749,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutCustomerInput = {
@@ -30504,6 +34774,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Purchase_onlineCreateWithoutSupplier_onlineInput = {
@@ -30575,6 +34847,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutSupplierInput = {
@@ -30598,6 +34872,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutSupplierInput = {
@@ -30653,6 +34929,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutSupplierInput = {
@@ -30676,6 +34954,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type SaleItem_onlineCreateWithoutProduct_onlineInput = {
@@ -30778,6 +35058,48 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type QuotationItem_onlineCreateWithoutProductInput = {
+    id?: string
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    quotation?: Quotation_onlineCreateNestedOneWithoutQuotationItemsInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationItemInput
+  }
+
+  export type QuotationItem_onlineUncheckedCreateWithoutProductInput = {
+    id?: string
+    quotationId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineCreateOrConnectWithoutProductInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    create: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput>
+  }
+
+  export type QuotationItem_onlineCreateManyProductInputEnvelope = {
+    data: QuotationItem_onlineCreateManyProductInput | QuotationItem_onlineCreateManyProductInput[]
+    skipDuplicates?: boolean
+  }
+
   export type Warehouses_onlineCreateWithoutProductsInput = {
     id?: string
     warehouseCode: string
@@ -30799,6 +35121,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutProductsInput = {
@@ -30822,6 +35146,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutProductsInput = {
@@ -30861,6 +35187,22 @@ export namespace Prisma {
     data: XOR<PurchaseItem_onlineUpdateManyMutationInput, PurchaseItem_onlineUncheckedUpdateManyWithoutProduct_onlineInput>
   }
 
+  export type QuotationItem_onlineUpsertWithWhereUniqueWithoutProductInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    update: XOR<QuotationItem_onlineUpdateWithoutProductInput, QuotationItem_onlineUncheckedUpdateWithoutProductInput>
+    create: XOR<QuotationItem_onlineCreateWithoutProductInput, QuotationItem_onlineUncheckedCreateWithoutProductInput>
+  }
+
+  export type QuotationItem_onlineUpdateWithWhereUniqueWithoutProductInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    data: XOR<QuotationItem_onlineUpdateWithoutProductInput, QuotationItem_onlineUncheckedUpdateWithoutProductInput>
+  }
+
+  export type QuotationItem_onlineUpdateManyWithWhereWithoutProductInput = {
+    where: QuotationItem_onlineScalarWhereInput
+    data: XOR<QuotationItem_onlineUpdateManyMutationInput, QuotationItem_onlineUncheckedUpdateManyWithoutProductInput>
+  }
+
   export type Warehouses_onlineUpsertWithoutProductsInput = {
     update: XOR<Warehouses_onlineUpdateWithoutProductsInput, Warehouses_onlineUncheckedUpdateWithoutProductsInput>
     create: XOR<Warehouses_onlineCreateWithoutProductsInput, Warehouses_onlineUncheckedCreateWithoutProductsInput>
@@ -30893,6 +35235,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutProductsInput = {
@@ -30916,6 +35260,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineCreateWithoutPaymentMethodInput = {
@@ -30939,6 +35285,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutPaymentMethodInput = {
@@ -30962,6 +35310,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutPaymentMethodInput = {
@@ -31048,6 +35398,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutPaymentMethodInput = {
@@ -31071,6 +35423,8 @@ export namespace Prisma {
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Sale_onlineUpsertWithoutPaymentMethodInput = {
@@ -31147,6 +35501,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutReceiptSettingsInput = {
@@ -31170,6 +35526,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutReceiptSettingsInput = {
@@ -31209,6 +35567,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutReceiptSettingsInput = {
@@ -31232,6 +35592,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Customer_onlineCreateWithoutBalancePaymentInput = {
@@ -31249,6 +35611,7 @@ export namespace Prisma {
     isDeleted?: boolean
     Sale?: Sale_onlineCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineCreateNestedManyWithoutCustomer_onlineInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutSelectedCustomerInput
     Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutCustomerInput
   }
 
@@ -31268,6 +35631,7 @@ export namespace Prisma {
     isDeleted?: boolean
     Sale?: Sale_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
     saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutSelectedCustomerInput
   }
 
   export type Customer_onlineCreateOrConnectWithoutBalancePaymentInput = {
@@ -31343,6 +35707,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
     supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineUncheckedCreateWithoutBalancePaymentInput = {
@@ -31366,6 +35732,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
     receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
   }
 
   export type Warehouses_onlineCreateOrConnectWithoutBalancePaymentInput = {
@@ -31399,6 +35767,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     Sale?: Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUpdateManyWithoutCustomer_onlineNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput
     Warehouses_online?: Warehouses_onlineUpdateOneWithoutCustomerNestedInput
   }
 
@@ -31418,6 +35787,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     Sale?: Sale_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Sale_onlineUpsertWithoutBalancePaymentInput = {
@@ -31505,6 +35875,8 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
   }
 
   export type Warehouses_onlineUncheckedUpdateWithoutBalancePaymentInput = {
@@ -31528,6 +35900,582 @@ export namespace Prisma {
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
     receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+  }
+
+  export type QuotationItem_onlineCreateWithoutQuotationInput = {
+    id?: string
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    product?: Product_onlineCreateNestedOneWithoutQuotationItemInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationItemInput
+  }
+
+  export type QuotationItem_onlineUncheckedCreateWithoutQuotationInput = {
+    id?: string
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineCreateOrConnectWithoutQuotationInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    create: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput>
+  }
+
+  export type QuotationItem_onlineCreateManyQuotationInputEnvelope = {
+    data: QuotationItem_onlineCreateManyQuotationInput | QuotationItem_onlineCreateManyQuotationInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type Customer_onlineCreateWithoutQuotationInput = {
+    id?: string
+    name: string
+    type: string
+    companyName?: string | null
+    email?: string | null
+    address?: string | null
+    phone: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    Sale?: Sale_onlineCreateNestedManyWithoutCustomer_onlineInput
+    saleItem?: SaleItem_onlineCreateNestedManyWithoutCustomer_onlineInput
+    balancePayment?: BalancePayment_onlineCreateNestedManyWithoutCustomerInput
+    Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutCustomerInput
+  }
+
+  export type Customer_onlineUncheckedCreateWithoutQuotationInput = {
+    id?: string
+    name: string
+    type: string
+    companyName?: string | null
+    email?: string | null
+    address?: string | null
+    phone: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    warehouses_onlineId?: string | null
+    isDeleted?: boolean
+    Sale?: Sale_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
+    saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutCustomer_onlineInput
+    balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutCustomerInput
+  }
+
+  export type Customer_onlineCreateOrConnectWithoutQuotationInput = {
+    where: Customer_onlineWhereUniqueInput
+    create: XOR<Customer_onlineCreateWithoutQuotationInput, Customer_onlineUncheckedCreateWithoutQuotationInput>
+  }
+
+  export type Warehouses_onlineCreateWithoutQuotationInput = {
+    id?: string
+    warehouseCode: string
+    name: string
+    phoneNumber: string
+    email: string
+    description?: string | null
+    address: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    users?: users_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    products?: Product_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    customer?: Customer_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    saleItem?: SaleItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    sale?: Sale_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    paymentMethod?: PaymentMethod_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    purchase?: Purchase_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineCreateNestedManyWithoutWarehousesInput
+  }
+
+  export type Warehouses_onlineUncheckedCreateWithoutQuotationInput = {
+    id?: string
+    warehouseCode: string
+    name: string
+    phoneNumber: string
+    email: string
+    description?: string | null
+    address: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    users?: users_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    products?: Product_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    customer?: Customer_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    sale?: Sale_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    paymentMethod?: PaymentMethod_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    purchase?: Purchase_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotationItem?: QuotationItem_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+  }
+
+  export type Warehouses_onlineCreateOrConnectWithoutQuotationInput = {
+    where: Warehouses_onlineWhereUniqueInput
+    create: XOR<Warehouses_onlineCreateWithoutQuotationInput, Warehouses_onlineUncheckedCreateWithoutQuotationInput>
+  }
+
+  export type QuotationItem_onlineUpsertWithWhereUniqueWithoutQuotationInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    update: XOR<QuotationItem_onlineUpdateWithoutQuotationInput, QuotationItem_onlineUncheckedUpdateWithoutQuotationInput>
+    create: XOR<QuotationItem_onlineCreateWithoutQuotationInput, QuotationItem_onlineUncheckedCreateWithoutQuotationInput>
+  }
+
+  export type QuotationItem_onlineUpdateWithWhereUniqueWithoutQuotationInput = {
+    where: QuotationItem_onlineWhereUniqueInput
+    data: XOR<QuotationItem_onlineUpdateWithoutQuotationInput, QuotationItem_onlineUncheckedUpdateWithoutQuotationInput>
+  }
+
+  export type QuotationItem_onlineUpdateManyWithWhereWithoutQuotationInput = {
+    where: QuotationItem_onlineScalarWhereInput
+    data: XOR<QuotationItem_onlineUpdateManyMutationInput, QuotationItem_onlineUncheckedUpdateManyWithoutQuotationInput>
+  }
+
+  export type Customer_onlineUpsertWithoutQuotationInput = {
+    update: XOR<Customer_onlineUpdateWithoutQuotationInput, Customer_onlineUncheckedUpdateWithoutQuotationInput>
+    create: XOR<Customer_onlineCreateWithoutQuotationInput, Customer_onlineUncheckedCreateWithoutQuotationInput>
+    where?: Customer_onlineWhereInput
+  }
+
+  export type Customer_onlineUpdateToOneWithWhereWithoutQuotationInput = {
+    where?: Customer_onlineWhereInput
+    data: XOR<Customer_onlineUpdateWithoutQuotationInput, Customer_onlineUncheckedUpdateWithoutQuotationInput>
+  }
+
+  export type Customer_onlineUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    Sale?: Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput
+    saleItem?: SaleItem_onlineUpdateManyWithoutCustomer_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUpdateManyWithoutCustomerNestedInput
+    Warehouses_online?: Warehouses_onlineUpdateOneWithoutCustomerNestedInput
+  }
+
+  export type Customer_onlineUncheckedUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    type?: StringFieldUpdateOperationsInput | string
+    companyName?: NullableStringFieldUpdateOperationsInput | string | null
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: NullableStringFieldUpdateOperationsInput | string | null
+    phone?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warehouses_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    Sale?: Sale_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
+    saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutCustomerNestedInput
+  }
+
+  export type Warehouses_onlineUpsertWithoutQuotationInput = {
+    update: XOR<Warehouses_onlineUpdateWithoutQuotationInput, Warehouses_onlineUncheckedUpdateWithoutQuotationInput>
+    create: XOR<Warehouses_onlineCreateWithoutQuotationInput, Warehouses_onlineUncheckedCreateWithoutQuotationInput>
+    where?: Warehouses_onlineWhereInput
+  }
+
+  export type Warehouses_onlineUpdateToOneWithWhereWithoutQuotationInput = {
+    where?: Warehouses_onlineWhereInput
+    data: XOR<Warehouses_onlineUpdateWithoutQuotationInput, Warehouses_onlineUncheckedUpdateWithoutQuotationInput>
+  }
+
+  export type Warehouses_onlineUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    warehouseCode?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    users?: users_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    products?: Product_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    customer?: Customer_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    saleItem?: SaleItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    sale?: Sale_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    paymentMethod?: PaymentMethod_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    purchase?: Purchase_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutWarehousesNestedInput
+  }
+
+  export type Warehouses_onlineUncheckedUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    warehouseCode?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    users?: users_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    products?: Product_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    customer?: Customer_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    sale?: Sale_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    paymentMethod?: PaymentMethod_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    purchase?: Purchase_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+  }
+
+  export type Quotation_onlineCreateWithoutQuotationItemsInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    selectedCustomer?: Customer_onlineCreateNestedOneWithoutQuotationInput
+    warehouses?: Warehouses_onlineCreateNestedOneWithoutQuotationInput
+  }
+
+  export type Quotation_onlineUncheckedCreateWithoutQuotationItemsInput = {
+    id?: string
+    selectedCustomerId?: string | null
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    warehousesId?: string | null
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type Quotation_onlineCreateOrConnectWithoutQuotationItemsInput = {
+    where: Quotation_onlineWhereUniqueInput
+    create: XOR<Quotation_onlineCreateWithoutQuotationItemsInput, Quotation_onlineUncheckedCreateWithoutQuotationItemsInput>
+  }
+
+  export type Product_onlineCreateWithoutQuotationItemInput = {
+    id?: string
+    name: string
+    barcode: string
+    wholeSalePrice: number
+    retailPrice: number
+    cost: number
+    quantity: number
+    taxRate: number
+    unit: $Enums.unit_online
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    SaleItem?: SaleItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutProduct_onlineInput
+    Warehouses_online?: Warehouses_onlineCreateNestedOneWithoutProductsInput
+  }
+
+  export type Product_onlineUncheckedCreateWithoutQuotationItemInput = {
+    id?: string
+    name: string
+    barcode: string
+    wholeSalePrice: number
+    retailPrice: number
+    cost: number
+    quantity: number
+    taxRate: number
+    unit: $Enums.unit_online
+    description: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    warehouses_onlineId?: string | null
+    isDeleted?: boolean
+    SaleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+    purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutProduct_onlineInput
+  }
+
+  export type Product_onlineCreateOrConnectWithoutQuotationItemInput = {
+    where: Product_onlineWhereUniqueInput
+    create: XOR<Product_onlineCreateWithoutQuotationItemInput, Product_onlineUncheckedCreateWithoutQuotationItemInput>
+  }
+
+  export type Warehouses_onlineCreateWithoutQuotationItemInput = {
+    id?: string
+    warehouseCode: string
+    name: string
+    phoneNumber: string
+    email: string
+    description?: string | null
+    address: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    users?: users_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    products?: Product_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    customer?: Customer_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    saleItem?: SaleItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    sale?: Sale_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    paymentMethod?: PaymentMethod_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    purchase?: Purchase_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    purchaseItem?: PurchaseItem_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    supplier?: Supplier_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    receiptSettings?: ReceiptSettings_onlineCreateNestedManyWithoutWarehouses_onlineInput
+    balancePayment?: BalancePayment_onlineCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineCreateNestedManyWithoutWarehousesInput
+  }
+
+  export type Warehouses_onlineUncheckedCreateWithoutQuotationItemInput = {
+    id?: string
+    warehouseCode: string
+    name: string
+    phoneNumber: string
+    email: string
+    description?: string | null
+    address: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+    users?: users_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    products?: Product_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    customer?: Customer_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    saleItem?: SaleItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    sale?: Sale_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    paymentMethod?: PaymentMethod_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    purchase?: Purchase_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    purchaseItem?: PurchaseItem_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    supplier?: Supplier_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    receiptSettings?: ReceiptSettings_onlineUncheckedCreateNestedManyWithoutWarehouses_onlineInput
+    balancePayment?: BalancePayment_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+    quotation?: Quotation_onlineUncheckedCreateNestedManyWithoutWarehousesInput
+  }
+
+  export type Warehouses_onlineCreateOrConnectWithoutQuotationItemInput = {
+    where: Warehouses_onlineWhereUniqueInput
+    create: XOR<Warehouses_onlineCreateWithoutQuotationItemInput, Warehouses_onlineUncheckedCreateWithoutQuotationItemInput>
+  }
+
+  export type Quotation_onlineUpsertWithoutQuotationItemsInput = {
+    update: XOR<Quotation_onlineUpdateWithoutQuotationItemsInput, Quotation_onlineUncheckedUpdateWithoutQuotationItemsInput>
+    create: XOR<Quotation_onlineCreateWithoutQuotationItemsInput, Quotation_onlineUncheckedCreateWithoutQuotationItemsInput>
+    where?: Quotation_onlineWhereInput
+  }
+
+  export type Quotation_onlineUpdateToOneWithWhereWithoutQuotationItemsInput = {
+    where?: Quotation_onlineWhereInput
+    data: XOR<Quotation_onlineUpdateWithoutQuotationItemsInput, Quotation_onlineUncheckedUpdateWithoutQuotationItemsInput>
+  }
+
+  export type Quotation_onlineUpdateWithoutQuotationItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    selectedCustomer?: Customer_onlineUpdateOneWithoutQuotationNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateWithoutQuotationItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    selectedCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type Product_onlineUpsertWithoutQuotationItemInput = {
+    update: XOR<Product_onlineUpdateWithoutQuotationItemInput, Product_onlineUncheckedUpdateWithoutQuotationItemInput>
+    create: XOR<Product_onlineCreateWithoutQuotationItemInput, Product_onlineUncheckedCreateWithoutQuotationItemInput>
+    where?: Product_onlineWhereInput
+  }
+
+  export type Product_onlineUpdateToOneWithWhereWithoutQuotationItemInput = {
+    where?: Product_onlineWhereInput
+    data: XOR<Product_onlineUpdateWithoutQuotationItemInput, Product_onlineUncheckedUpdateWithoutQuotationItemInput>
+  }
+
+  export type Product_onlineUpdateWithoutQuotationItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    barcode?: StringFieldUpdateOperationsInput | string
+    wholeSalePrice?: FloatFieldUpdateOperationsInput | number
+    retailPrice?: FloatFieldUpdateOperationsInput | number
+    cost?: FloatFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    taxRate?: IntFieldUpdateOperationsInput | number
+    unit?: Enumunit_onlineFieldUpdateOperationsInput | $Enums.unit_online
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    SaleItem?: SaleItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    Warehouses_online?: Warehouses_onlineUpdateOneWithoutProductsNestedInput
+  }
+
+  export type Product_onlineUncheckedUpdateWithoutQuotationItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    barcode?: StringFieldUpdateOperationsInput | string
+    wholeSalePrice?: FloatFieldUpdateOperationsInput | number
+    retailPrice?: FloatFieldUpdateOperationsInput | number
+    cost?: FloatFieldUpdateOperationsInput | number
+    quantity?: IntFieldUpdateOperationsInput | number
+    taxRate?: IntFieldUpdateOperationsInput | number
+    unit?: Enumunit_onlineFieldUpdateOperationsInput | $Enums.unit_online
+    description?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    warehouses_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    SaleItem?: SaleItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+  }
+
+  export type Warehouses_onlineUpsertWithoutQuotationItemInput = {
+    update: XOR<Warehouses_onlineUpdateWithoutQuotationItemInput, Warehouses_onlineUncheckedUpdateWithoutQuotationItemInput>
+    create: XOR<Warehouses_onlineCreateWithoutQuotationItemInput, Warehouses_onlineUncheckedCreateWithoutQuotationItemInput>
+    where?: Warehouses_onlineWhereInput
+  }
+
+  export type Warehouses_onlineUpdateToOneWithWhereWithoutQuotationItemInput = {
+    where?: Warehouses_onlineWhereInput
+    data: XOR<Warehouses_onlineUpdateWithoutQuotationItemInput, Warehouses_onlineUncheckedUpdateWithoutQuotationItemInput>
+  }
+
+  export type Warehouses_onlineUpdateWithoutQuotationItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    warehouseCode?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    users?: users_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    products?: Product_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    customer?: Customer_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    saleItem?: SaleItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    sale?: Sale_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    paymentMethod?: PaymentMethod_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    purchase?: Purchase_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    supplier?: Supplier_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    receiptSettings?: ReceiptSettings_onlineUpdateManyWithoutWarehouses_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutWarehousesNestedInput
+  }
+
+  export type Warehouses_onlineUncheckedUpdateWithoutQuotationItemInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    warehouseCode?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phoneNumber?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    address?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    users?: users_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    products?: Product_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    customer?: Customer_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    sale?: Sale_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    paymentMethod?: PaymentMethod_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    purchase?: Purchase_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    supplier?: Supplier_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    receiptSettings?: ReceiptSettings_onlineUncheckedUpdateManyWithoutWarehouses_onlineNestedInput
+    balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutWarehousesNestedInput
   }
 
   export type users_onlineCreateManyWarehouses_onlineInput = {
@@ -31746,6 +36694,40 @@ export namespace Prisma {
     isDeleted?: boolean
   }
 
+  export type Quotation_onlineCreateManyWarehousesInput = {
+    id?: string
+    selectedCustomerId?: string | null
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineCreateManyWarehousesInput = {
+    id?: string
+    quotationId?: string | null
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
   export type users_onlineUpdateWithoutWarehouses_onlineInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
@@ -31809,6 +36791,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUpdateManyWithoutProduct_onlineNestedInput
     purchaseItem?: PurchaseItem_onlineUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUpdateManyWithoutProductNestedInput
   }
 
   export type Product_onlineUncheckedUpdateWithoutWarehouses_onlineInput = {
@@ -31829,6 +36812,7 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
     SaleItem?: SaleItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
     purchaseItem?: PurchaseItem_onlineUncheckedUpdateManyWithoutProduct_onlineNestedInput
+    quotationItem?: QuotationItem_onlineUncheckedUpdateManyWithoutProductNestedInput
   }
 
   export type Product_onlineUncheckedUpdateManyWithoutWarehouses_onlineInput = {
@@ -31865,6 +36849,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Customer_onlineUncheckedUpdateWithoutWarehouses_onlineInput = {
@@ -31883,6 +36868,7 @@ export namespace Prisma {
     Sale?: Sale_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     saleItem?: SaleItem_onlineUncheckedUpdateManyWithoutCustomer_onlineNestedInput
     balancePayment?: BalancePayment_onlineUncheckedUpdateManyWithoutCustomerNestedInput
+    quotation?: Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerNestedInput
   }
 
   export type Customer_onlineUncheckedUpdateManyWithoutWarehouses_onlineInput = {
@@ -32414,6 +37400,110 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type Quotation_onlineUpdateWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUpdateManyWithoutQuotationNestedInput
+    selectedCustomer?: Customer_onlineUpdateOneWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    selectedCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUncheckedUpdateManyWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateManyWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    selectedCustomerId?: NullableStringFieldUpdateOperationsInput | string | null
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUpdateWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotation?: Quotation_onlineUpdateOneWithoutQuotationItemsNestedInput
+    product?: Product_onlineUpdateOneWithoutQuotationItemNestedInput
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutWarehousesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type SaleItem_onlineCreateManySale_onlineInput = {
     id?: string
     productName: string
@@ -32733,6 +37823,24 @@ export namespace Prisma {
     isDeleted?: boolean
   }
 
+  export type Quotation_onlineCreateManySelectedCustomerInput = {
+    id?: string
+    taxRate: number
+    subTotal: number
+    notes?: string | null
+    grandTotal: number
+    validUntil?: Date | string | null
+    status?: string
+    convertedToSaleId?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    warehousesId?: string | null
+    quotationNo: string
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
   export type Sale_onlineUpdateWithoutCustomer_onlineInput = {
     id?: StringFieldUpdateOperationsInput | string
     subTotal?: FloatFieldUpdateOperationsInput | number
@@ -32892,6 +38000,62 @@ export namespace Prisma {
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 
+  export type Quotation_onlineUpdateWithoutSelectedCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUpdateManyWithoutQuotationNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateWithoutSelectedCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotationItems?: QuotationItem_onlineUncheckedUpdateManyWithoutQuotationNestedInput
+  }
+
+  export type Quotation_onlineUncheckedUpdateManyWithoutSelectedCustomerInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    taxRate?: FloatFieldUpdateOperationsInput | number
+    subTotal?: FloatFieldUpdateOperationsInput | number
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    grandTotal?: FloatFieldUpdateOperationsInput | number
+    validUntil?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    convertedToSaleId?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    quotationNo?: StringFieldUpdateOperationsInput | string
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type Purchase_onlineCreateManySupplier_onlineInput = {
     id?: string
     taxRate: number
@@ -33003,6 +38167,22 @@ export namespace Prisma {
     updatedAt?: Date | string
     warehouses_onlineId?: string | null
     purchase_onlineId?: string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineCreateManyProductInput = {
+    id?: string
+    quotationId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
     isDeleted?: boolean
   }
 
@@ -33123,6 +38303,118 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     warehouses_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
     purchase_onlineId?: NullableStringFieldUpdateOperationsInput | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUpdateWithoutProductInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    quotation?: Quotation_onlineUpdateOneWithoutQuotationItemsNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationItemNestedInput
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateWithoutProductInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutProductInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    quotationId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineCreateManyQuotationInput = {
+    id?: string
+    productId?: string | null
+    productName: string
+    cost: number
+    selectedPrice: number
+    priceType: string
+    quantity: number
+    discount: number
+    total: number
+    warehousesId?: string | null
+    sync?: boolean
+    syncedAt?: Date | string | null
+    isDeleted?: boolean
+  }
+
+  export type QuotationItem_onlineUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+    product?: Product_onlineUpdateOneWithoutQuotationItemNestedInput
+    warehouses?: Warehouses_onlineUpdateOneWithoutQuotationItemNestedInput
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    isDeleted?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type QuotationItem_onlineUncheckedUpdateManyWithoutQuotationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    productId?: NullableStringFieldUpdateOperationsInput | string | null
+    productName?: StringFieldUpdateOperationsInput | string
+    cost?: FloatFieldUpdateOperationsInput | number
+    selectedPrice?: FloatFieldUpdateOperationsInput | number
+    priceType?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    discount?: FloatFieldUpdateOperationsInput | number
+    total?: FloatFieldUpdateOperationsInput | number
+    warehousesId?: NullableStringFieldUpdateOperationsInput | string | null
+    sync?: BoolFieldUpdateOperationsInput | boolean
+    syncedAt?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     isDeleted?: BoolFieldUpdateOperationsInput | boolean
   }
 

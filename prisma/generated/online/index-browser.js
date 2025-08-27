@@ -394,6 +394,42 @@ exports.Prisma.BalancePayment_onlineScalarFieldEnum = {
   isDeleted: 'isDeleted'
 };
 
+exports.Prisma.Quotation_onlineScalarFieldEnum = {
+  id: 'id',
+  selectedCustomerId: 'selectedCustomerId',
+  taxRate: 'taxRate',
+  subTotal: 'subTotal',
+  notes: 'notes',
+  grandTotal: 'grandTotal',
+  validUntil: 'validUntil',
+  status: 'status',
+  convertedToSaleId: 'convertedToSaleId',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt',
+  warehousesId: 'warehousesId',
+  quotationNo: 'quotationNo',
+  sync: 'sync',
+  syncedAt: 'syncedAt',
+  isDeleted: 'isDeleted'
+};
+
+exports.Prisma.QuotationItem_onlineScalarFieldEnum = {
+  id: 'id',
+  quotationId: 'quotationId',
+  productId: 'productId',
+  productName: 'productName',
+  cost: 'cost',
+  selectedPrice: 'selectedPrice',
+  priceType: 'priceType',
+  quantity: 'quantity',
+  discount: 'discount',
+  total: 'total',
+  warehousesId: 'warehousesId',
+  sync: 'sync',
+  syncedAt: 'syncedAt',
+  isDeleted: 'isDeleted'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -440,7 +476,9 @@ exports.Prisma.ModelName = {
   Product_online: 'Product_online',
   PaymentMethod_online: 'PaymentMethod_online',
   ReceiptSettings_online: 'ReceiptSettings_online',
-  BalancePayment_online: 'BalancePayment_online'
+  BalancePayment_online: 'BalancePayment_online',
+  Quotation_online: 'Quotation_online',
+  QuotationItem_online: 'QuotationItem_online'
 };
 
 /**

@@ -15,8 +15,6 @@ datasource db_ {
   url      = env("DATABASE_URL_ONLINE")
 }
 
-
-
 enum mode_online {
   dark
   light
@@ -96,8 +94,8 @@ model Settings_online {
 }
 
 model Warehouses_online {
-  id              String                     @id @default(uuid())
-  warehouseCode   String                     @unique
+  id              String                   @id @default(uuid())
+  warehouseCode   String                   @unique
   name            String
   phoneNumber     String
   email           String
@@ -114,13 +112,15 @@ model Warehouses_online {
   supplier        Supplier_online[]
   receiptSettings ReceiptSettings_online[]
   balancePayment  BalancePayment_online[]
-  sync            Boolean                    @default(false) // Sync field
+  quotation       Quotation_online[]
+  quotationItem   QuotationItem_online[]
+  sync            Boolean                  @default(false) // Sync field
   syncedAt        DateTime? // When last synced
-  isDeleted       Boolean                    @default(false)
+  isDeleted       Boolean                  @default(false)
 }
 
 model Sale_online {
-  id                  String                    @id @default(cuid())
+  id                  String                  @id @default(cuid())
   saleItems           SaleItem_online[]
   subTotal            Float
   notes               String?
@@ -129,18 +129,18 @@ model Sale_online {
   grandTotal          Float
   paidAmount          Float
   balance             Float
-  createdAt           DateTime                  @default(now())
-  updatedAt           DateTime                  @updatedAt
-  invoiceNo           String                    @unique
+  createdAt           DateTime                @default(now())
+  updatedAt           DateTime                @updatedAt
+  invoiceNo           String                  @unique
   paymentMethod       PaymentMethod_online[]
   balancePayment      BalancePayment_online[]
-  sync                Boolean                   @default(false) // Sync field
+  sync                Boolean                 @default(false) // Sync field
   syncedAt            DateTime? // When last synced
-  Warehouses_online   Warehouses_online?        @relation(fields: [warehouses_onlineId], references: [warehouseCode])
+  Warehouses_online   Warehouses_online?      @relation(fields: [warehouses_onlineId], references: [warehouseCode])
   warehouses_onlineId String?
-  Customer_online     Customer_online?          @relation(fields: [customer_onlineId], references: [id])
+  Customer_online     Customer_online?        @relation(fields: [customer_onlineId], references: [id])
   customer_onlineId   String?
-  isDeleted           Boolean                   @default(false)
+  isDeleted           Boolean                 @default(false)
 }
 
 model SaleItem_online {
@@ -219,7 +219,7 @@ model PurchaseItem_online {
 }
 
 model Customer_online {
-  id                  String                    @id @default(uuid())
+  id                  String                  @id @default(uuid())
   name                String
   type                String
   companyName         String?
@@ -229,13 +229,14 @@ model Customer_online {
   Sale                Sale_online[]
   saleItem            SaleItem_online[]
   balancePayment      BalancePayment_online[]
-  createdAt           DateTime                  @default(now())
-  updatedAt           DateTime                  @updatedAt
-  sync                Boolean                   @default(false) // Sync field
+  quotation           Quotation_online[]
+  createdAt           DateTime                @default(now())
+  updatedAt           DateTime                @updatedAt
+  sync                Boolean                 @default(false) // Sync field
   syncedAt            DateTime? // When last synced
-  Warehouses_online   Warehouses_online?        @relation(fields: [warehouses_onlineId], references: [warehouseCode])
+  Warehouses_online   Warehouses_online?      @relation(fields: [warehouses_onlineId], references: [warehouseCode])
   warehouses_onlineId String?
-  isDeleted           Boolean                   @default(false)
+  isDeleted           Boolean                 @default(false)
 }
 
 model Supplier_online {
@@ -257,7 +258,7 @@ model Supplier_online {
 }
 
 model Product_online {
-  id                  String                @id @default(uuid())
+  id                  String                 @id @default(uuid())
   name                String
   barcode             String
   wholeSalePrice      Float
@@ -269,13 +270,14 @@ model Product_online {
   description         String
   SaleItem            SaleItem_online[]
   purchaseItem        PurchaseItem_online[]
-  createdAt           DateTime              @default(now())
-  updatedAt           DateTime              @updatedAt
-  sync                Boolean               @default(false) // Sync field
+  quotationItem       QuotationItem_online[]
+  createdAt           DateTime               @default(now())
+  updatedAt           DateTime               @updatedAt
+  sync                Boolean                @default(false) // Sync field
   syncedAt            DateTime? // When last synced
-  Warehouses_online   Warehouses_online?    @relation(fields: [warehouses_onlineId], references: [warehouseCode])
+  Warehouses_online   Warehouses_online?     @relation(fields: [warehouses_onlineId], references: [warehouseCode])
   warehouses_onlineId String?
-  isDeleted           Boolean               @default(false)
+  isDeleted           Boolean                @default(false)
 }
 
 model PaymentMethod_online {
@@ -359,20 +361,62 @@ model ReceiptSettings_online {
 }
 
 model BalancePayment_online {
-  id                  String             @id @default(uuid())
-  customerId          String
-  customer            Customer_online    @relation(fields: [customerId], references: [id])
-  saleId              String?
-  sale                Sale_online?       @relation(fields: [saleId], references: [invoiceNo])
-  amount              Float
-  paymentMethod       String
-  receiptNo           String             @unique
-  notes               String?
-  warehousesId        String?
-  warehouses          Warehouses_online? @relation(fields: [warehousesId], references: [warehouseCode])
-  createdAt           DateTime           @default(now())
-  updatedAt           DateTime           @updatedAt
-  sync                Boolean            @default(false) // Sync field
-  syncedAt            DateTime? // When last synced
-  isDeleted           Boolean            @default(false)
+  id            String             @id @default(uuid())
+  customerId    String
+  customer      Customer_online    @relation(fields: [customerId], references: [id])
+  saleId        String?
+  sale          Sale_online?       @relation(fields: [saleId], references: [invoiceNo])
+  amount        Float
+  paymentMethod String
+  receiptNo     String             @unique
+  notes         String?
+  warehousesId  String?
+  warehouses    Warehouses_online? @relation(fields: [warehousesId], references: [warehouseCode])
+  createdAt     DateTime           @default(now())
+  updatedAt     DateTime           @updatedAt
+  sync          Boolean            @default(false) // Sync field
+  syncedAt      DateTime? // When last synced
+  isDeleted     Boolean            @default(false)
+}
+
+model Quotation_online {
+  id               String                 @id @default(cuid())
+  quotationItems   QuotationItem_online[]
+  selectedCustomerId String? // reference to Customer
+  selectedCustomer Customer_online?       @relation(fields: [selectedCustomerId], references: [id])
+  taxRate          Float
+  subTotal         Float
+  notes            String?
+  grandTotal       Float
+  validUntil       DateTime? // Quotation expiry date
+  status           String                 @default("pending") // pending, accepted, rejected, converted
+  convertedToSaleId String? // If converted to sale, reference to Sale
+  createdAt        DateTime               @default(now())
+  updatedAt        DateTime               @updatedAt
+  warehousesId     String?
+  warehouses       Warehouses_online?     @relation(fields: [warehousesId], references: [warehouseCode])
+  quotationNo      String                 @unique
+  sync             Boolean                @default(false) // Sync field
+  syncedAt         DateTime? // When last synced
+  isDeleted        Boolean                @default(false)
+}
+
+model QuotationItem_online {
+  id            String             @id @default(cuid())
+  quotationId   String?
+  quotation     Quotation_online?  @relation(fields: [quotationId], references: [quotationNo])
+  productId     String?
+  product       Product_online?    @relation(fields: [productId], references: [id])
+  productName   String
+  cost          Float
+  selectedPrice Float
+  priceType     String
+  quantity      Int
+  discount      Float
+  total         Float
+  warehouses    Warehouses_online? @relation(fields: [warehousesId], references: [warehouseCode])
+  warehousesId  String?
+  sync          Boolean            @default(false) // Sync field
+  syncedAt      DateTime? // When last synced
+  isDeleted     Boolean            @default(false)
 }
