@@ -47,9 +47,11 @@ import {
   Package,
   AlertCircle,
   RefreshCcw,
+  Printer,
 } from "lucide-react"
 import { formatCurrency } from "@/lib/utils"
 import { useSession } from "next-auth/react"
+import { usePrintPurchase } from "@/hooks/use-print-purchase"
 
 
 
@@ -64,6 +66,7 @@ export default function ViewPurchasesPage() {
 
   const warehouseId = getWareHouseId()
   const { data: purchases, loading, error,refetch } = fetchWareHouseData("/api/purchase/list", { warehouseId })
+  const { printPurchaseReceipt } = usePrintPurchase()
   useEffect(()=>{
     setEndPoint(`/warehouse/${warehouseId}/${session?.user?.role}`)
   },[session,warehouseId])
@@ -262,6 +265,38 @@ export default function ViewPurchasesPage() {
 
     printWindow.document.close()
     printWindow.print()
+  }
+
+  const handlePrintReceipt = (purchase: any) => {
+    // Prepare data for the receipt printer
+    const receiptData = {
+      referenceNo: purchase.referenceNo,
+      invoiceNo: purchase.referenceNo, // Use reference as invoice number
+      date: new Date(purchase.createdAt).toLocaleDateString(),
+      time: new Date(purchase.createdAt).toLocaleTimeString(),
+      supplier: purchase.Supplier?.name || 'N/A',
+      warehouse: 'Current Warehouse', // You might want to get actual warehouse name
+      items: (purchase.purchaseItem || []).map((item: any) => ({
+        name: item.productName,
+        productBarcode: item.productBarcode || '',
+        quantity: item.quantity,
+        cost: item.cost,
+        discount: item.discount,
+        total: item.total,
+        unit: item.unit || ''
+      })),
+      subtotal: purchase.subTotal,
+      taxRate: purchase.taxRate || 0,
+      taxAmount: (purchase.subTotal * (purchase.taxRate || 0)) / 100,
+      shipping: 0, // Add if you have shipping data
+      total: purchase.grandTotal,
+      paidAmount: purchase.paidAmount,
+      balance: purchase.balance,
+      status: purchase.status || 'received',
+      notes: purchase.notes || ''
+    }
+
+    printPurchaseReceipt(receiptData)
   }
 
   // Calculate statistics
@@ -520,6 +555,11 @@ export default function ViewPurchasesPage() {
                               <DropdownMenuItem onClick={() => handlePrint(purchase)}>
                                 <Download className="mr-2 h-4 w-4" />
                                 Print Order
+                              </DropdownMenuItem>
+                              
+                              <DropdownMenuItem onClick={() => handlePrintReceipt(purchase)}>
+                                <Printer className="mr-2 h-4 w-4" />
+                                Print Receipt
                               </DropdownMenuItem>
                               
                               <DropdownMenuSeparator />
