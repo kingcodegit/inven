@@ -22,6 +22,8 @@ import {
   Warehouse,
   type LucideIcon,
   Receipt,
+  Calculator,
+  Quote,
 } from "lucide-react"
 
 
@@ -169,7 +171,7 @@ export function WarehouseAppSidebar({ ...props }: React.ComponentProps<typeof Si
                   icon: Home,
                 },
               ]} />
-        <NavSection title="Inventory" items={[
+        <NavSection title="Sales Operations" items={[
     {
       title: "Sales",
       icon: ShoppingCart,
@@ -186,8 +188,59 @@ export function WarehouseAppSidebar({ ...props }: React.ComponentProps<typeof Si
         },
       ],
     },
-   
+    {
+      title: "Quotations",
+      icon: Quote,
+      items: [
+        {
+          title: "Add Quotation",
+          url: `${endpoint}/quotations/add`,
+          icon: Plus,
+        },
+        {
+          title: "View Quotations",
+          url: `${endpoint}/quotations/list`,
+          icon: Eye,
+        },
+      ],
+    },
   ]} />
+        <NavSection title="Inventory" items={[
+    {
+      title: "Products",
+      icon: Package,
+      items: [
+        {
+          title: "View Products",
+          url: `${endpoint}/products/list`,
+          icon: Eye,
+        },
+      ],
+    },
+  ]} />
+        <NavSection title="People" items={[
+              {
+                title: "Customers",
+                icon: UserCheck,
+                items: [
+                  {
+                    title: "View Customers",
+                    url: `${endpoint}/people/customers`,
+                    icon: Eye,
+                  },
+                ],
+              },
+            ]} />
+        <NavSection
+            title="Reports"
+            items={[
+              {
+                title: "Receipt",
+                url: `${endpoint}/receipt`,
+                icon: Receipt,
+              },
+            ]}
+          />
        
 
         
